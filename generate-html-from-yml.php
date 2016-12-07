@@ -36,7 +36,7 @@ $html=
 							$(trigger).animate({opacity: 0}, function() {
 								$(trigger).removeAttr('style');
 							});
-							return $(trigger).attr('class');
+							return $(trigger).attr('class').replace(' fa-2x', '');
 						}
 					});
 
