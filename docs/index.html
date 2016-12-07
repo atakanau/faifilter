@@ -1,0 +1,4155 @@
+<!DOCTYPE html>
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+	<head>
+		<meta charset='utf-8'>
+		<meta content='en' name='language'>
+		<meta content='width=device-width, initial-scale=1' name='viewport'>
+		<script src='..\tommyp-multifilter\lib\jquery.js'></script>
+		<script src='..\clipboard.js-master\dist\clipboard.min.js'></script>
+		<script src='..\tommyp-multifilter\multifilter.js'></script>
+		<link href='..\tommyp-multifilter\style.css' media='screen' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' type='text/css' href='..\Font-Awesome-master/css/font-awesome.min.css'>
+		<title>faifilter - atakanau</title>
+		<script type='text/javascript'>
+			//<![CDATA[
+				$(document).ready(function() {
+					$('.filter').multifilter()
+					var clipboard = new Clipboard('i', {
+						text: function(trigger) {
+							console.log($(trigger).attr('class') );
+							$(trigger).animate({opacity: 0}, function() {
+								$(trigger).removeAttr('style');
+							});
+							return $(trigger).attr('class').replace(' fa-2x', '');
+						}
+					});
+
+					$('#compact').on('change', function (e) {
+						$('table').removeClass('compact').addClass(this.value);
+					})
+
+					$('.reset').click(function () {
+						e = $(this).prev();
+						// if(e.prop('tagName').toLowerCase() == 'select')
+							e.val('').trigger('change');
+					})
+
+					$('small').click(function () {
+						e = $(this).prev();
+						var col = $(this).parent().parent().children().index($(this).parent());
+						console.log(col );
+						if(col==3)
+							$('#keyword').val($(this).text()).trigger('change');
+						else if(col==4)
+							$('#categories').val($(this).text()).trigger('change');
+					});
+
+					$('i').hover(
+						function () {
+							$(this).addClass('fa-2x');
+						},
+						function () {
+							$(this).removeClass('fa-2x');
+						}
+					);
+				})
+			//]]>
+		</script>
+		<style type='text/css'>
+		.compact td:nth-child(1), .compact tr {display:inline-block;}.compact td:not(:first-child) {display:none;}tr{padding:0;margin:0;}td{min-width:2.5em;padding:0;margin:0;}i:not(.fa-2x){padding:0.5em;}i ,small ,button.reset{cursor: pointer;}small {text-decoration: underline;}small:hover {text-decoration: none;}a {color: grey;}h1 {padding: 0;margin: 0;}
+		</style>
+	</head>
+	<body style='background-color: black;color: white;'>
+		<div class='container'>
+		
+		<a href="https://github.com/atakanau/faifilter"><h1>faifilter - font awesome icon filter <code>(fa: v4.7)</code></h1></a>
+			<table class='compact' cellpadding='0' cellspacing='0'>
+				<thead>
+					<th>view <br/>
+						<select id='compact'>
+							<option value='compact'>…</option>
+							<option value=''>—</option>
+						</select>
+					</th>
+					<th>created <br/>
+						<select class='filter' name='created' placeholder='created' data-col='created'>
+							<option value=''>*</option>
+							<option value="1.0">1.0</option><option value="2.0">2.0</option><option value="3.0">3.0</option><option value="3.1">3.1</option><option value="3.2">3.2</option><option value="4.0">4.0</option><option value="4.1">4.1</option><option value="4.2">4.2</option><option value="4.3">4.3</option><option value="4.4">4.4</option><option value="4.5">4.5</option><option value="4.6">4.6</option><option value="4.7">4.7</option>
+						</select><button class='reset'>×</button>
+					</th>
+					<th>aliases <br/> <input autocomplete='off' class='filter' id='aliases' name='aliases' placeholder='aliases' data-col='aliases'><button class='reset'>×</button></th>
+					<th>keyword <br/> <input autocomplete='off' class='filter' id='keyword' name='keyword' placeholder='keyword' data-col='keyword'><button class='reset'>×</button></th>
+					<th>categories <br/> 
+						<select class='filter' id='categories' name='categories' placeholder='categories' data-col='categories'>
+							<option value=''>*</option>
+							<option value="Accessibility">Accessibility</option><option value="Brand">Brand</option><option value="Chart">Chart</option><option value="Currency">Currency</option><option value="Directional">Directional</option><option value="File Type">File Type</option><option value="Form Control">Form Control</option><option value="Gender">Gender</option><option value="Hand">Hand</option><option value="Medical">Medical</option><option value="Payment">Payment</option><option value="Spinner">Spinner</option><option value="Text Editor">Text Editor</option><option value="Transportation">Transportation</option><option value="Video Player">Video Player</option><option value="Web Application">Web Application</option>
+						</select><button class='reset'>×</button>
+					</th>
+				</thead>
+				<tbody>
+					<tr>
+<td title='Glass'><i class='fa fa-glass'></i></td>
+<td>1.0</td>
+<td>glass</td>
+<td><small>martini</small> <small>drink</small> <small>bar</small> <small>alcohol</small> <small>liquor</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Music'><i class='fa fa-music'></i></td>
+<td>1.0</td>
+<td>music</td>
+<td><small>note</small> <small>sound</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Search'><i class='fa fa-search'></i></td>
+<td>1.0</td>
+<td>search</td>
+<td><small>magnify</small> <small>zoom</small> <small>enlarge</small> <small>bigger</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Envelope Outlined'><i class='fa fa-envelope-o'></i></td>
+<td>1.0</td>
+<td>envelope-o</td>
+<td><small>email</small> <small>support</small> <small>e-mail</small> <small>letter</small> <small>mail</small> <small>notification</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Heart'><i class='fa fa-heart'></i></td>
+<td>1.0</td>
+<td>heart</td>
+<td><small>love</small> <small>like</small> <small>favorite</small></td>
+<td><small>Web Application</small> <small>Medical</small></td>
+</tr><tr>
+<td title='Star'><i class='fa fa-star'></i></td>
+<td>1.0</td>
+<td>star</td>
+<td><small>award</small> <small>achievement</small> <small>night</small> <small>rating</small> <small>score</small> <small>favorite</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Star Outlined'><i class='fa fa-star-o'></i></td>
+<td>1.0</td>
+<td>star-o</td>
+<td><small>award</small> <small>achievement</small> <small>night</small> <small>rating</small> <small>score</small> <small>favorite</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='User'><i class='fa fa-user'></i></td>
+<td>1.0</td>
+<td>user</td>
+<td><small>person</small> <small>man</small> <small>head</small> <small>profile</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Film'><i class='fa fa-film'></i></td>
+<td>1.0</td>
+<td>film</td>
+<td><small>movie</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='th-large'><i class='fa fa-th-large'></i></td>
+<td>1.0</td>
+<td>th-large</td>
+<td><small>blocks</small> <small>squares</small> <small>boxes</small> <small>grid</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='th'><i class='fa fa-th'></i></td>
+<td>1.0</td>
+<td>th</td>
+<td><small>blocks</small> <small>squares</small> <small>boxes</small> <small>grid</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='th-list'><i class='fa fa-th-list'></i></td>
+<td>1.0</td>
+<td>th-list</td>
+<td><small>ul</small> <small>ol</small> <small>checklist</small> <small>finished</small> <small>completed</small> <small>done</small> <small>todo</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Check'><i class='fa fa-check'></i></td>
+<td>1.0</td>
+<td>check</td>
+<td><small>checkmark</small> <small>done</small> <small>todo</small> <small>agree</small> <small>accept</small> <small>confirm</small> <small>tick</small> <small>ok</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Times'><i class='fa fa-times'></i></td>
+<td>1.0</td>
+<td>times,remove,close</td>
+<td><small>close</small> <small>exit</small> <small>x</small> <small>cross</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Search Plus'><i class='fa fa-search-plus'></i></td>
+<td>1.0</td>
+<td>search-plus</td>
+<td><small>magnify</small> <small>zoom</small> <small>enlarge</small> <small>bigger</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Search Minus'><i class='fa fa-search-minus'></i></td>
+<td>1.0</td>
+<td>search-minus</td>
+<td><small>magnify</small> <small>minify</small> <small>zoom</small> <small>smaller</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Power Off'><i class='fa fa-power-off'></i></td>
+<td>1.0</td>
+<td>power-off</td>
+<td><small>on</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='signal'><i class='fa fa-signal'></i></td>
+<td>1.0</td>
+<td>signal</td>
+<td><small>graph</small> <small>bars</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='cog'><i class='fa fa-cog'></i></td>
+<td>1.0</td>
+<td>cog,gear</td>
+<td><small>settings</small></td>
+<td><small>Web Application</small> <small>Spinner</small></td>
+</tr><tr>
+<td title='Trash Outlined'><i class='fa fa-trash-o'></i></td>
+<td>1.0</td>
+<td>trash-o</td>
+<td><small>garbage</small> <small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='home'><i class='fa fa-home'></i></td>
+<td>1.0</td>
+<td>home</td>
+<td><small>main</small> <small>house</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='File Outlined'><i class='fa fa-file-o'></i></td>
+<td>1.0</td>
+<td>file-o</td>
+<td><small>new</small> <small>page</small> <small>pdf</small> <small>document</small></td>
+<td><small>Text Editor</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Clock Outlined'><i class='fa fa-clock-o'></i></td>
+<td>1.0</td>
+<td>clock-o</td>
+<td><small>watch</small> <small>timer</small> <small>late</small> <small>timestamp</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='road'><i class='fa fa-road'></i></td>
+<td>1.0</td>
+<td>road</td>
+<td><small>street</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Download'><i class='fa fa-download'></i></td>
+<td>1.0</td>
+<td>download</td>
+<td><small>import</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Arrow Circle Outlined Down'><i class='fa fa-arrow-circle-o-down'></i></td>
+<td>1.0</td>
+<td>arrow-circle-o-down</td>
+<td><small>download</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Arrow Circle Outlined Up'><i class='fa fa-arrow-circle-o-up'></i></td>
+<td>1.0</td>
+<td>arrow-circle-o-up</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='inbox'><i class='fa fa-inbox'></i></td>
+<td>1.0</td>
+<td>inbox</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Play Circle Outlined'><i class='fa fa-play-circle-o'></i></td>
+<td>1.0</td>
+<td>play-circle-o</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Repeat'><i class='fa fa-repeat'></i></td>
+<td>1.0</td>
+<td>repeat,rotate-right</td>
+<td><small>redo</small> <small>forward</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='refresh'><i class='fa fa-refresh'></i></td>
+<td>1.0</td>
+<td>refresh</td>
+<td><small>reload</small> <small>sync</small></td>
+<td><small>Web Application</small> <small>Spinner</small></td>
+</tr><tr>
+<td title='list-alt'><i class='fa fa-list-alt'></i></td>
+<td>1.0</td>
+<td>list-alt</td>
+<td><small>ul</small> <small>ol</small> <small>checklist</small> <small>finished</small> <small>completed</small> <small>done</small> <small>todo</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='lock'><i class='fa fa-lock'></i></td>
+<td>1.0</td>
+<td>lock</td>
+<td><small>protect</small> <small>admin</small> <small>security</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='flag'><i class='fa fa-flag'></i></td>
+<td>1.0</td>
+<td>flag</td>
+<td><small>report</small> <small>notification</small> <small>notify</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='headphones'><i class='fa fa-headphones'></i></td>
+<td>1.0</td>
+<td>headphones</td>
+<td><small>sound</small> <small>listen</small> <small>music</small> <small>audio</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='volume-off'><i class='fa fa-volume-off'></i></td>
+<td>1.0</td>
+<td>volume-off</td>
+<td><small>audio</small> <small>mute</small> <small>sound</small> <small>music</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='volume-down'><i class='fa fa-volume-down'></i></td>
+<td>1.0</td>
+<td>volume-down</td>
+<td><small>audio</small> <small>lower</small> <small>quieter</small> <small>sound</small> <small>music</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='volume-up'><i class='fa fa-volume-up'></i></td>
+<td>1.0</td>
+<td>volume-up</td>
+<td><small>audio</small> <small>higher</small> <small>louder</small> <small>sound</small> <small>music</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='qrcode'><i class='fa fa-qrcode'></i></td>
+<td>1.0</td>
+<td>qrcode</td>
+<td><small>scan</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='barcode'><i class='fa fa-barcode'></i></td>
+<td>1.0</td>
+<td>barcode</td>
+<td><small>scan</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='tag'><i class='fa fa-tag'></i></td>
+<td>1.0</td>
+<td>tag</td>
+<td><small>label</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='tags'><i class='fa fa-tags'></i></td>
+<td>1.0</td>
+<td>tags</td>
+<td><small>labels</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='book'><i class='fa fa-book'></i></td>
+<td>1.0</td>
+<td>book</td>
+<td><small>read</small> <small>documentation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='bookmark'><i class='fa fa-bookmark'></i></td>
+<td>1.0</td>
+<td>bookmark</td>
+<td><small>save</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='print'><i class='fa fa-print'></i></td>
+<td>1.0</td>
+<td>print</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='camera'><i class='fa fa-camera'></i></td>
+<td>1.0</td>
+<td>camera</td>
+<td><small>photo</small> <small>picture</small> <small>record</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='font'><i class='fa fa-font'></i></td>
+<td>1.0</td>
+<td>font</td>
+<td><small>text</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='bold'><i class='fa fa-bold'></i></td>
+<td>1.0</td>
+<td>bold</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='italic'><i class='fa fa-italic'></i></td>
+<td>1.0</td>
+<td>italic</td>
+<td><small>italics</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='text-height'><i class='fa fa-text-height'></i></td>
+<td>1.0</td>
+<td>text-height</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='text-width'><i class='fa fa-text-width'></i></td>
+<td>1.0</td>
+<td>text-width</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='align-left'><i class='fa fa-align-left'></i></td>
+<td>1.0</td>
+<td>align-left</td>
+<td><small>text</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='align-center'><i class='fa fa-align-center'></i></td>
+<td>1.0</td>
+<td>align-center</td>
+<td><small>middle</small> <small>text</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='align-right'><i class='fa fa-align-right'></i></td>
+<td>1.0</td>
+<td>align-right</td>
+<td><small>text</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='align-justify'><i class='fa fa-align-justify'></i></td>
+<td>1.0</td>
+<td>align-justify</td>
+<td><small>text</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='list'><i class='fa fa-list'></i></td>
+<td>1.0</td>
+<td>list</td>
+<td><small>ul</small> <small>ol</small> <small>checklist</small> <small>finished</small> <small>completed</small> <small>done</small> <small>todo</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Outdent'><i class='fa fa-outdent'></i></td>
+<td>1.0</td>
+<td>outdent,dedent</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Indent'><i class='fa fa-indent'></i></td>
+<td>1.0</td>
+<td>indent</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Video Camera'><i class='fa fa-video-camera'></i></td>
+<td>1.0</td>
+<td>video-camera</td>
+<td><small>film</small> <small>movie</small> <small>record</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Picture Outlined'><i class='fa fa-picture-o'></i></td>
+<td>1.0</td>
+<td>picture-o,photo,image</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='pencil'><i class='fa fa-pencil'></i></td>
+<td>1.0</td>
+<td>pencil</td>
+<td><small>write</small> <small>edit</small> <small>update</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='map-marker'><i class='fa fa-map-marker'></i></td>
+<td>1.0</td>
+<td>map-marker</td>
+<td><small>map</small> <small>pin</small> <small>location</small> <small>coordinates</small> <small>localize</small> <small>address</small> <small>travel</small> <small>where</small> <small>place</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='adjust'><i class='fa fa-adjust'></i></td>
+<td>1.0</td>
+<td>adjust</td>
+<td><small>contrast</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='tint'><i class='fa fa-tint'></i></td>
+<td>1.0</td>
+<td>tint</td>
+<td><small>raindrop</small> <small>waterdrop</small> <small>drop</small> <small>droplet</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Pencil Square Outlined'><i class='fa fa-pencil-square-o'></i></td>
+<td>1.0</td>
+<td>pencil-square-o,edit</td>
+<td><small>write</small> <small>edit</small> <small>update</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Share Square Outlined'><i class='fa fa-share-square-o'></i></td>
+<td>1.0</td>
+<td>share-square-o</td>
+<td><small>social</small> <small>send</small> <small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Check Square Outlined'><i class='fa fa-check-square-o'></i></td>
+<td>1.0</td>
+<td>check-square-o</td>
+<td><small>todo</small> <small>done</small> <small>agree</small> <small>accept</small> <small>confirm</small> <small>ok</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Arrows'><i class='fa fa-arrows'></i></td>
+<td>1.0</td>
+<td>arrows</td>
+<td><small>move</small> <small>reorder</small> <small>resize</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='step-backward'><i class='fa fa-step-backward'></i></td>
+<td>1.0</td>
+<td>step-backward</td>
+<td><small>rewind</small> <small>previous</small> <small>beginning</small> <small>start</small> <small>first</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='fast-backward'><i class='fa fa-fast-backward'></i></td>
+<td>1.0</td>
+<td>fast-backward</td>
+<td><small>rewind</small> <small>previous</small> <small>beginning</small> <small>start</small> <small>first</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='backward'><i class='fa fa-backward'></i></td>
+<td>1.0</td>
+<td>backward</td>
+<td><small>rewind</small> <small>previous</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='play'><i class='fa fa-play'></i></td>
+<td>1.0</td>
+<td>play</td>
+<td><small>start</small> <small>playing</small> <small>music</small> <small>sound</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='pause'><i class='fa fa-pause'></i></td>
+<td>1.0</td>
+<td>pause</td>
+<td><small>wait</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='stop'><i class='fa fa-stop'></i></td>
+<td>1.0</td>
+<td>stop</td>
+<td><small>block</small> <small>box</small> <small>square</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='forward'><i class='fa fa-forward'></i></td>
+<td>1.0</td>
+<td>forward</td>
+<td><small>forward</small> <small>next</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='fast-forward'><i class='fa fa-fast-forward'></i></td>
+<td>1.0</td>
+<td>fast-forward</td>
+<td><small>next</small> <small>end</small> <small>last</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='step-forward'><i class='fa fa-step-forward'></i></td>
+<td>1.0</td>
+<td>step-forward</td>
+<td><small>next</small> <small>end</small> <small>last</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='eject'><i class='fa fa-eject'></i></td>
+<td>1.0</td>
+<td>eject</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='chevron-left'><i class='fa fa-chevron-left'></i></td>
+<td>1.0</td>
+<td>chevron-left</td>
+<td><small>bracket</small> <small>previous</small> <small>back</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='chevron-right'><i class='fa fa-chevron-right'></i></td>
+<td>1.0</td>
+<td>chevron-right</td>
+<td><small>bracket</small> <small>next</small> <small>forward</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Plus Circle'><i class='fa fa-plus-circle'></i></td>
+<td>1.0</td>
+<td>plus-circle</td>
+<td><small>add</small> <small>new</small> <small>create</small> <small>expand</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Minus Circle'><i class='fa fa-minus-circle'></i></td>
+<td>1.0</td>
+<td>minus-circle</td>
+<td><small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Times Circle'><i class='fa fa-times-circle'></i></td>
+<td>1.0</td>
+<td>times-circle</td>
+<td><small>close</small> <small>exit</small> <small>x</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Check Circle'><i class='fa fa-check-circle'></i></td>
+<td>1.0</td>
+<td>check-circle</td>
+<td><small>todo</small> <small>done</small> <small>agree</small> <small>accept</small> <small>confirm</small> <small>ok</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Question Circle'><i class='fa fa-question-circle'></i></td>
+<td>1.0</td>
+<td>question-circle</td>
+<td><small>help</small> <small>information</small> <small>unknown</small> <small>support</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Info Circle'><i class='fa fa-info-circle'></i></td>
+<td>1.0</td>
+<td>info-circle</td>
+<td><small>help</small> <small>information</small> <small>more</small> <small>details</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Crosshairs'><i class='fa fa-crosshairs'></i></td>
+<td>1.0</td>
+<td>crosshairs</td>
+<td><small>picker</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Times Circle Outlined'><i class='fa fa-times-circle-o'></i></td>
+<td>1.0</td>
+<td>times-circle-o</td>
+<td><small>close</small> <small>exit</small> <small>x</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Check Circle Outlined'><i class='fa fa-check-circle-o'></i></td>
+<td>1.0</td>
+<td>check-circle-o</td>
+<td><small>todo</small> <small>done</small> <small>agree</small> <small>accept</small> <small>confirm</small> <small>ok</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='ban'><i class='fa fa-ban'></i></td>
+<td>1.0</td>
+<td>ban</td>
+<td><small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small> <small>block</small> <small>stop</small> <small>abort</small> <small>cancel</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='arrow-left'><i class='fa fa-arrow-left'></i></td>
+<td>1.0</td>
+<td>arrow-left</td>
+<td><small>previous</small> <small>back</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='arrow-right'><i class='fa fa-arrow-right'></i></td>
+<td>1.0</td>
+<td>arrow-right</td>
+<td><small>next</small> <small>forward</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='arrow-up'><i class='fa fa-arrow-up'></i></td>
+<td>1.0</td>
+<td>arrow-up</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='arrow-down'><i class='fa fa-arrow-down'></i></td>
+<td>1.0</td>
+<td>arrow-down</td>
+<td><small>download</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Share'><i class='fa fa-share'></i></td>
+<td>1.0</td>
+<td>share,mail-forward</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Expand'><i class='fa fa-expand'></i></td>
+<td>1.0</td>
+<td>expand</td>
+<td><small>enlarge</small> <small>bigger</small> <small>resize</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Compress'><i class='fa fa-compress'></i></td>
+<td>1.0</td>
+<td>compress</td>
+<td><small>collapse</small> <small>combine</small> <small>contract</small> <small>merge</small> <small>smaller</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='plus'><i class='fa fa-plus'></i></td>
+<td>1.0</td>
+<td>plus</td>
+<td><small>add</small> <small>new</small> <small>create</small> <small>expand</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='minus'><i class='fa fa-minus'></i></td>
+<td>1.0</td>
+<td>minus</td>
+<td><small>hide</small> <small>minify</small> <small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small> <small>collapse</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='asterisk'><i class='fa fa-asterisk'></i></td>
+<td>1.0</td>
+<td>asterisk</td>
+<td><small>details</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Exclamation Circle'><i class='fa fa-exclamation-circle'></i></td>
+<td>1.0</td>
+<td>exclamation-circle</td>
+<td><small>warning</small> <small>error</small> <small>problem</small> <small>notification</small> <small>alert</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='gift'><i class='fa fa-gift'></i></td>
+<td>1.0</td>
+<td>gift</td>
+<td><small>present</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='leaf'><i class='fa fa-leaf'></i></td>
+<td>1.0</td>
+<td>leaf</td>
+<td><small>eco</small> <small>nature</small> <small>plant</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='fire'><i class='fa fa-fire'></i></td>
+<td>1.0</td>
+<td>fire</td>
+<td><small>flame</small> <small>hot</small> <small>popular</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Eye'><i class='fa fa-eye'></i></td>
+<td>1.0</td>
+<td>eye</td>
+<td><small>show</small> <small>visible</small> <small>views</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Eye Slash'><i class='fa fa-eye-slash'></i></td>
+<td>1.0</td>
+<td>eye-slash</td>
+<td><small>toggle</small> <small>show</small> <small>hide</small> <small>visible</small> <small>visiblity</small> <small>views</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Exclamation Triangle'><i class='fa fa-exclamation-triangle'></i></td>
+<td>1.0</td>
+<td>exclamation-triangle,warning</td>
+<td><small>warning</small> <small>error</small> <small>problem</small> <small>notification</small> <small>alert</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='plane'><i class='fa fa-plane'></i></td>
+<td>1.0</td>
+<td>plane</td>
+<td><small>travel</small> <small>trip</small> <small>location</small> <small>destination</small> <small>airplane</small> <small>fly</small> <small>mode</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='calendar'><i class='fa fa-calendar'></i></td>
+<td>1.0</td>
+<td>calendar</td>
+<td><small>date</small> <small>time</small> <small>when</small> <small>event</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='random'><i class='fa fa-random'></i></td>
+<td>1.0</td>
+<td>random</td>
+<td><small>sort</small> <small>shuffle</small></td>
+<td><small>Web Application</small> <small>Video Player</small></td>
+</tr><tr>
+<td title='comment'><i class='fa fa-comment'></i></td>
+<td>1.0</td>
+<td>comment</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='magnet'><i class='fa fa-magnet'></i></td>
+<td>1.0</td>
+<td>magnet</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='chevron-up'><i class='fa fa-chevron-up'></i></td>
+<td>1.0</td>
+<td>chevron-up</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='chevron-down'><i class='fa fa-chevron-down'></i></td>
+<td>1.0</td>
+<td>chevron-down</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='retweet'><i class='fa fa-retweet'></i></td>
+<td>1.0</td>
+<td>retweet</td>
+<td><small>refresh</small> <small>reload</small> <small>share</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='shopping-cart'><i class='fa fa-shopping-cart'></i></td>
+<td>1.0</td>
+<td>shopping-cart</td>
+<td><small>checkout</small> <small>buy</small> <small>purchase</small> <small>payment</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Folder'><i class='fa fa-folder'></i></td>
+<td>1.0</td>
+<td>folder</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Folder Open'><i class='fa fa-folder-open'></i></td>
+<td>1.0</td>
+<td>folder-open</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Arrows Vertical'><i class='fa fa-arrows-v'></i></td>
+<td>1.0</td>
+<td>arrows-v</td>
+<td><small>resize</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Arrows Horizontal'><i class='fa fa-arrows-h'></i></td>
+<td>1.0</td>
+<td>arrows-h</td>
+<td><small>resize</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Bar Chart'><i class='fa fa-bar-chart'></i></td>
+<td>1.0</td>
+<td>bar-chart,bar-chart-o</td>
+<td><small>graph</small> <small>analytics</small></td>
+<td><small>Web Application</small> <small>Chart</small></td>
+</tr><tr>
+<td title='Twitter Square'><i class='fa fa-twitter-square'></i></td>
+<td>1.0</td>
+<td>twitter-square</td>
+<td><small>tweet</small> <small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Facebook Square'><i class='fa fa-facebook-square'></i></td>
+<td>1.0</td>
+<td>facebook-square</td>
+<td><small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='camera-retro'><i class='fa fa-camera-retro'></i></td>
+<td>1.0</td>
+<td>camera-retro</td>
+<td><small>photo</small> <small>picture</small> <small>record</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='key'><i class='fa fa-key'></i></td>
+<td>1.0</td>
+<td>key</td>
+<td><small>unlock</small> <small>password</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='cogs'><i class='fa fa-cogs'></i></td>
+<td>1.0</td>
+<td>cogs,gears</td>
+<td><small>settings</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='comments'><i class='fa fa-comments'></i></td>
+<td>1.0</td>
+<td>comments</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Thumbs Up Outlined'><i class='fa fa-thumbs-o-up'></i></td>
+<td>1.0</td>
+<td>thumbs-o-up</td>
+<td><small>like</small> <small>approve</small> <small>favorite</small> <small>agree</small> <small>hand</small></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Thumbs Down Outlined'><i class='fa fa-thumbs-o-down'></i></td>
+<td>1.0</td>
+<td>thumbs-o-down</td>
+<td><small>dislike</small> <small>disapprove</small> <small>disagree</small> <small>hand</small></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='star-half'><i class='fa fa-star-half'></i></td>
+<td>1.0</td>
+<td>star-half</td>
+<td><small>award</small> <small>achievement</small> <small>rating</small> <small>score</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Heart Outlined'><i class='fa fa-heart-o'></i></td>
+<td>1.0</td>
+<td>heart-o</td>
+<td><small>love</small> <small>like</small> <small>favorite</small></td>
+<td><small>Web Application</small> <small>Medical</small></td>
+</tr><tr>
+<td title='Sign Out'><i class='fa fa-sign-out'></i></td>
+<td>1.0</td>
+<td>sign-out</td>
+<td><small>log out</small> <small>logout</small> <small>leave</small> <small>exit</small> <small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='LinkedIn Square'><i class='fa fa-linkedin-square'></i></td>
+<td>1.0</td>
+<td>linkedin-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Thumb Tack'><i class='fa fa-thumb-tack'></i></td>
+<td>1.0</td>
+<td>thumb-tack</td>
+<td><small>marker</small> <small>pin</small> <small>location</small> <small>coordinates</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='External Link'><i class='fa fa-external-link'></i></td>
+<td>1.0</td>
+<td>external-link</td>
+<td><small>open</small> <small>new</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sign In'><i class='fa fa-sign-in'></i></td>
+<td>1.0</td>
+<td>sign-in</td>
+<td><small>enter</small> <small>join</small> <small>log in</small> <small>login</small> <small>sign up</small> <small>sign in</small> <small>signin</small> <small>signup</small> <small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='trophy'><i class='fa fa-trophy'></i></td>
+<td>1.0</td>
+<td>trophy</td>
+<td><small>award</small> <small>achievement</small> <small>cup</small> <small>winner</small> <small>game</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='GitHub Square'><i class='fa fa-github-square'></i></td>
+<td>1.0</td>
+<td>github-square</td>
+<td><small>octocat</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Upload'><i class='fa fa-upload'></i></td>
+<td>1.0</td>
+<td>upload</td>
+<td><small>import</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Lemon Outlined'><i class='fa fa-lemon-o'></i></td>
+<td>1.0</td>
+<td>lemon-o</td>
+<td><small>food</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Phone'><i class='fa fa-phone'></i></td>
+<td>2.0</td>
+<td>phone</td>
+<td><small>call</small> <small>voice</small> <small>number</small> <small>support</small> <small>earphone</small> <small>telephone</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Square Outlined'><i class='fa fa-square-o'></i></td>
+<td>2.0</td>
+<td>square-o</td>
+<td><small>block</small> <small>square</small> <small>box</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Bookmark Outlined'><i class='fa fa-bookmark-o'></i></td>
+<td>2.0</td>
+<td>bookmark-o</td>
+<td><small>save</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Phone Square'><i class='fa fa-phone-square'></i></td>
+<td>2.0</td>
+<td>phone-square</td>
+<td><small>call</small> <small>voice</small> <small>number</small> <small>support</small> <small>telephone</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Twitter'><i class='fa fa-twitter'></i></td>
+<td>2.0</td>
+<td>twitter</td>
+<td><small>tweet</small> <small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Facebook'><i class='fa fa-facebook'></i></td>
+<td>2.0</td>
+<td>facebook,facebook-f</td>
+<td><small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='GitHub'><i class='fa fa-github'></i></td>
+<td>2.0</td>
+<td>github</td>
+<td><small>octocat</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='unlock'><i class='fa fa-unlock'></i></td>
+<td>2.0</td>
+<td>unlock</td>
+<td><small>protect</small> <small>admin</small> <small>password</small> <small>lock</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='credit-card'><i class='fa fa-credit-card'></i></td>
+<td>2.0</td>
+<td>credit-card</td>
+<td><small>money</small> <small>buy</small> <small>debit</small> <small>checkout</small> <small>purchase</small> <small>payment</small></td>
+<td><small>Web Application</small> <small>Payment</small></td>
+</tr><tr>
+<td title='rss'><i class='fa fa-rss'></i></td>
+<td>2.0</td>
+<td>rss,feed</td>
+<td><small>blog</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='HDD'><i class='fa fa-hdd-o'></i></td>
+<td>2.0</td>
+<td>hdd-o</td>
+<td><small>harddrive</small> <small>hard drive</small> <small>storage</small> <small>save</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='bullhorn'><i class='fa fa-bullhorn'></i></td>
+<td>2.0</td>
+<td>bullhorn</td>
+<td><small>announcement</small> <small>share</small> <small>broadcast</small> <small>louder</small> <small>megaphone</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='bell'><i class='fa fa-bell'></i></td>
+<td>2.0</td>
+<td>bell</td>
+<td><small>alert</small> <small>reminder</small> <small>notification</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='certificate'><i class='fa fa-certificate'></i></td>
+<td>2.0</td>
+<td>certificate</td>
+<td><small>badge</small> <small>star</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hand Outlined Right'><i class='fa fa-hand-o-right'></i></td>
+<td>2.0</td>
+<td>hand-o-right</td>
+<td><small>point</small> <small>right</small> <small>next</small> <small>forward</small> <small>finger</small></td>
+<td><small>Directional</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Hand Outlined Left'><i class='fa fa-hand-o-left'></i></td>
+<td>2.0</td>
+<td>hand-o-left</td>
+<td><small>point</small> <small>left</small> <small>previous</small> <small>back</small> <small>finger</small></td>
+<td><small>Directional</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Hand Outlined Up'><i class='fa fa-hand-o-up'></i></td>
+<td>2.0</td>
+<td>hand-o-up</td>
+<td><small>point</small> <small>finger</small></td>
+<td><small>Directional</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Hand Outlined Down'><i class='fa fa-hand-o-down'></i></td>
+<td>2.0</td>
+<td>hand-o-down</td>
+<td><small>point</small> <small>finger</small></td>
+<td><small>Directional</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Arrow Circle Left'><i class='fa fa-arrow-circle-left'></i></td>
+<td>2.0</td>
+<td>arrow-circle-left</td>
+<td><small>previous</small> <small>back</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Arrow Circle Right'><i class='fa fa-arrow-circle-right'></i></td>
+<td>2.0</td>
+<td>arrow-circle-right</td>
+<td><small>next</small> <small>forward</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Arrow Circle Up'><i class='fa fa-arrow-circle-up'></i></td>
+<td>2.0</td>
+<td>arrow-circle-up</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Arrow Circle Down'><i class='fa fa-arrow-circle-down'></i></td>
+<td>2.0</td>
+<td>arrow-circle-down</td>
+<td><small>download</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Globe'><i class='fa fa-globe'></i></td>
+<td>2.0</td>
+<td>globe</td>
+<td><small>world</small> <small>planet</small> <small>map</small> <small>place</small> <small>travel</small> <small>earth</small> <small>global</small> <small>translate</small> <small>all</small> <small>language</small> <small>localize</small> <small>location</small> <small>coordinates</small> <small>country</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Wrench'><i class='fa fa-wrench'></i></td>
+<td>2.0</td>
+<td>wrench</td>
+<td><small>settings</small> <small>fix</small> <small>update</small> <small>spanner</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Tasks'><i class='fa fa-tasks'></i></td>
+<td>2.0</td>
+<td>tasks</td>
+<td><small>progress</small> <small>loading</small> <small>downloading</small> <small>downloads</small> <small>settings</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Filter'><i class='fa fa-filter'></i></td>
+<td>2.0</td>
+<td>filter</td>
+<td><small>funnel</small> <small>options</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Briefcase'><i class='fa fa-briefcase'></i></td>
+<td>2.0</td>
+<td>briefcase</td>
+<td><small>work</small> <small>business</small> <small>office</small> <small>luggage</small> <small>bag</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Arrows Alt'><i class='fa fa-arrows-alt'></i></td>
+<td>2.0</td>
+<td>arrows-alt</td>
+<td><small>expand</small> <small>enlarge</small> <small>fullscreen</small> <small>bigger</small> <small>move</small> <small>reorder</small> <small>resize</small> <small>arrow</small></td>
+<td><small>Video Player</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Users'><i class='fa fa-users'></i></td>
+<td>2.0</td>
+<td>users,group</td>
+<td><small>people</small> <small>profiles</small> <small>persons</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Link'><i class='fa fa-link'></i></td>
+<td>2.0</td>
+<td>link,chain</td>
+<td><small>chain</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Cloud'><i class='fa fa-cloud'></i></td>
+<td>2.0</td>
+<td>cloud</td>
+<td><small>save</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Flask'><i class='fa fa-flask'></i></td>
+<td>2.0</td>
+<td>flask</td>
+<td><small>science</small> <small>beaker</small> <small>experimental</small> <small>labs</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Scissors'><i class='fa fa-scissors'></i></td>
+<td>2.0</td>
+<td>scissors,cut</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Files Outlined'><i class='fa fa-files-o'></i></td>
+<td>2.0</td>
+<td>files-o,copy</td>
+<td><small>duplicate</small> <small>clone</small> <small>copy</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Paperclip'><i class='fa fa-paperclip'></i></td>
+<td>2.0</td>
+<td>paperclip</td>
+<td><small>attachment</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Floppy Outlined'><i class='fa fa-floppy-o'></i></td>
+<td>2.0</td>
+<td>floppy-o,save</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Square'><i class='fa fa-square'></i></td>
+<td>2.0</td>
+<td>square</td>
+<td><small>block</small> <small>box</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Bars'><i class='fa fa-bars'></i></td>
+<td>2.0</td>
+<td>bars,navicon,reorder</td>
+<td><small>menu</small> <small>drag</small> <small>reorder</small> <small>settings</small> <small>list</small> <small>ul</small> <small>ol</small> <small>checklist</small> <small>todo</small> <small>list</small> <small>hamburger</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='list-ul'><i class='fa fa-list-ul'></i></td>
+<td>2.0</td>
+<td>list-ul</td>
+<td><small>ul</small> <small>ol</small> <small>checklist</small> <small>todo</small> <small>list</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='list-ol'><i class='fa fa-list-ol'></i></td>
+<td>2.0</td>
+<td>list-ol</td>
+<td><small>ul</small> <small>ol</small> <small>checklist</small> <small>list</small> <small>todo</small> <small>list</small> <small>numbers</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Strikethrough'><i class='fa fa-strikethrough'></i></td>
+<td>2.0</td>
+<td>strikethrough</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Underline'><i class='fa fa-underline'></i></td>
+<td>2.0</td>
+<td>underline</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='table'><i class='fa fa-table'></i></td>
+<td>2.0</td>
+<td>table</td>
+<td><small>data</small> <small>excel</small> <small>spreadsheet</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='magic'><i class='fa fa-magic'></i></td>
+<td>2.0</td>
+<td>magic</td>
+<td><small>wizard</small> <small>automatic</small> <small>autocomplete</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='truck'><i class='fa fa-truck'></i></td>
+<td>2.0</td>
+<td>truck</td>
+<td><small>shipping</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Pinterest'><i class='fa fa-pinterest'></i></td>
+<td>2.0</td>
+<td>pinterest</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pinterest Square'><i class='fa fa-pinterest-square'></i></td>
+<td>2.0</td>
+<td>pinterest-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Google Plus Square'><i class='fa fa-google-plus-square'></i></td>
+<td>2.0</td>
+<td>google-plus-square</td>
+<td><small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Google Plus'><i class='fa fa-google-plus'></i></td>
+<td>2.0</td>
+<td>google-plus</td>
+<td><small>social network</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Money'><i class='fa fa-money'></i></td>
+<td>2.0</td>
+<td>money</td>
+<td><small>cash</small> <small>money</small> <small>buy</small> <small>checkout</small> <small>purchase</small> <small>payment</small></td>
+<td><small>Web Application</small> <small>Currency</small></td>
+</tr><tr>
+<td title='Caret Down'><i class='fa fa-caret-down'></i></td>
+<td>2.0</td>
+<td>caret-down</td>
+<td><small>more</small> <small>dropdown</small> <small>menu</small> <small>triangle down</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Caret Up'><i class='fa fa-caret-up'></i></td>
+<td>2.0</td>
+<td>caret-up</td>
+<td><small>triangle up</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Caret Left'><i class='fa fa-caret-left'></i></td>
+<td>2.0</td>
+<td>caret-left</td>
+<td><small>previous</small> <small>back</small> <small>triangle left</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Caret Right'><i class='fa fa-caret-right'></i></td>
+<td>2.0</td>
+<td>caret-right</td>
+<td><small>next</small> <small>forward</small> <small>triangle right</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Columns'><i class='fa fa-columns'></i></td>
+<td>2.0</td>
+<td>columns</td>
+<td><small>split</small> <small>panes</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Sort'><i class='fa fa-sort'></i></td>
+<td>2.0</td>
+<td>sort,unsorted</td>
+<td><small>order</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Descending'><i class='fa fa-sort-desc'></i></td>
+<td>2.0</td>
+<td>sort-desc,sort-down</td>
+<td><small>dropdown</small> <small>more</small> <small>menu</small> <small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Ascending'><i class='fa fa-sort-asc'></i></td>
+<td>2.0</td>
+<td>sort-asc,sort-up</td>
+<td><small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Envelope'><i class='fa fa-envelope'></i></td>
+<td>2.0</td>
+<td>envelope</td>
+<td><small>email</small> <small>e-mail</small> <small>letter</small> <small>support</small> <small>mail</small> <small>notification</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='LinkedIn'><i class='fa fa-linkedin'></i></td>
+<td>2.0</td>
+<td>linkedin</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Undo'><i class='fa fa-undo'></i></td>
+<td>2.0</td>
+<td>undo,rotate-left</td>
+<td><small>back</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Gavel'><i class='fa fa-gavel'></i></td>
+<td>2.0</td>
+<td>gavel,legal</td>
+<td><small>judge</small> <small>lawyer</small> <small>opinion</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Tachometer'><i class='fa fa-tachometer'></i></td>
+<td>2.0</td>
+<td>tachometer,dashboard</td>
+<td><small>speedometer</small> <small>fast</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='comment-o'><i class='fa fa-comment-o'></i></td>
+<td>2.0</td>
+<td>comment-o</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='comments-o'><i class='fa fa-comments-o'></i></td>
+<td>2.0</td>
+<td>comments-o</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Lightning Bolt'><i class='fa fa-bolt'></i></td>
+<td>2.0</td>
+<td>bolt,flash</td>
+<td><small>lightning</small> <small>weather</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sitemap'><i class='fa fa-sitemap'></i></td>
+<td>2.0</td>
+<td>sitemap</td>
+<td><small>directory</small> <small>hierarchy</small> <small>organization</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Umbrella'><i class='fa fa-umbrella'></i></td>
+<td>2.0</td>
+<td>umbrella</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Clipboard'><i class='fa fa-clipboard'></i></td>
+<td>2.0</td>
+<td>clipboard,paste</td>
+<td><small>copy</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Lightbulb Outlined'><i class='fa fa-lightbulb-o'></i></td>
+<td>3.0</td>
+<td>lightbulb-o</td>
+<td><small>idea</small> <small>inspiration</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Exchange'><i class='fa fa-exchange'></i></td>
+<td>3.0</td>
+<td>exchange</td>
+<td><small>transfer</small> <small>arrows</small> <small>arrow</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Cloud Download'><i class='fa fa-cloud-download'></i></td>
+<td>3.0</td>
+<td>cloud-download</td>
+<td><small>import</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Cloud Upload'><i class='fa fa-cloud-upload'></i></td>
+<td>3.0</td>
+<td>cloud-upload</td>
+<td><small>import</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='user-md'><i class='fa fa-user-md'></i></td>
+<td>2.0</td>
+<td>user-md</td>
+<td><small>doctor</small> <small>profile</small> <small>medical</small> <small>nurse</small></td>
+<td><small>Medical</small></td>
+</tr><tr>
+<td title='Stethoscope'><i class='fa fa-stethoscope'></i></td>
+<td>3.0</td>
+<td>stethoscope</td>
+<td></td>
+<td><small>Medical</small></td>
+</tr><tr>
+<td title='Suitcase'><i class='fa fa-suitcase'></i></td>
+<td>3.0</td>
+<td>suitcase</td>
+<td><small>trip</small> <small>luggage</small> <small>travel</small> <small>move</small> <small>baggage</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bell Outlined'><i class='fa fa-bell-o'></i></td>
+<td>3.0</td>
+<td>bell-o</td>
+<td><small>alert</small> <small>reminder</small> <small>notification</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Coffee'><i class='fa fa-coffee'></i></td>
+<td>3.0</td>
+<td>coffee</td>
+<td><small>morning</small> <small>mug</small> <small>breakfast</small> <small>tea</small> <small>drink</small> <small>cafe</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Cutlery'><i class='fa fa-cutlery'></i></td>
+<td>3.0</td>
+<td>cutlery</td>
+<td><small>food</small> <small>restaurant</small> <small>spoon</small> <small>knife</small> <small>dinner</small> <small>eat</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='File Text Outlined'><i class='fa fa-file-text-o'></i></td>
+<td>3.0</td>
+<td>file-text-o</td>
+<td><small>new</small> <small>page</small> <small>pdf</small> <small>document</small></td>
+<td><small>Text Editor</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Building Outlined'><i class='fa fa-building-o'></i></td>
+<td>3.0</td>
+<td>building-o</td>
+<td><small>work</small> <small>business</small> <small>apartment</small> <small>office</small> <small>company</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='hospital Outlined'><i class='fa fa-hospital-o'></i></td>
+<td>3.0</td>
+<td>hospital-o</td>
+<td><small>building</small></td>
+<td><small>Medical</small></td>
+</tr><tr>
+<td title='ambulance'><i class='fa fa-ambulance'></i></td>
+<td>3.0</td>
+<td>ambulance</td>
+<td><small>vehicle</small> <small>support</small> <small>help</small></td>
+<td><small>Medical</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='medkit'><i class='fa fa-medkit'></i></td>
+<td>3.0</td>
+<td>medkit</td>
+<td><small>first aid</small> <small>firstaid</small> <small>help</small> <small>support</small> <small>health</small></td>
+<td><small>Medical</small></td>
+</tr><tr>
+<td title='fighter-jet'><i class='fa fa-fighter-jet'></i></td>
+<td>3.0</td>
+<td>fighter-jet</td>
+<td><small>fly</small> <small>plane</small> <small>airplane</small> <small>quick</small> <small>fast</small> <small>travel</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='beer'><i class='fa fa-beer'></i></td>
+<td>3.0</td>
+<td>beer</td>
+<td><small>alcohol</small> <small>stein</small> <small>drink</small> <small>mug</small> <small>bar</small> <small>liquor</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='H Square'><i class='fa fa-h-square'></i></td>
+<td>3.0</td>
+<td>h-square</td>
+<td><small>hospital</small> <small>hotel</small></td>
+<td><small>Medical</small></td>
+</tr><tr>
+<td title='Plus Square'><i class='fa fa-plus-square'></i></td>
+<td>3.0</td>
+<td>plus-square</td>
+<td><small>add</small> <small>new</small> <small>create</small> <small>expand</small></td>
+<td><small>Medical</small> <small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Angle Double Left'><i class='fa fa-angle-double-left'></i></td>
+<td>3.0</td>
+<td>angle-double-left</td>
+<td><small>laquo</small> <small>quote</small> <small>previous</small> <small>back</small> <small>arrows</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Angle Double Right'><i class='fa fa-angle-double-right'></i></td>
+<td>3.0</td>
+<td>angle-double-right</td>
+<td><small>raquo</small> <small>quote</small> <small>next</small> <small>forward</small> <small>arrows</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Angle Double Up'><i class='fa fa-angle-double-up'></i></td>
+<td>3.0</td>
+<td>angle-double-up</td>
+<td><small>arrows</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Angle Double Down'><i class='fa fa-angle-double-down'></i></td>
+<td>3.0</td>
+<td>angle-double-down</td>
+<td><small>arrows</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='angle-left'><i class='fa fa-angle-left'></i></td>
+<td>3.0</td>
+<td>angle-left</td>
+<td><small>previous</small> <small>back</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='angle-right'><i class='fa fa-angle-right'></i></td>
+<td>3.0</td>
+<td>angle-right</td>
+<td><small>next</small> <small>forward</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='angle-up'><i class='fa fa-angle-up'></i></td>
+<td>3.0</td>
+<td>angle-up</td>
+<td><small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='angle-down'><i class='fa fa-angle-down'></i></td>
+<td>3.0</td>
+<td>angle-down</td>
+<td><small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Desktop'><i class='fa fa-desktop'></i></td>
+<td>3.0</td>
+<td>desktop</td>
+<td><small>monitor</small> <small>screen</small> <small>desktop</small> <small>computer</small> <small>demo</small> <small>device</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Laptop'><i class='fa fa-laptop'></i></td>
+<td>3.0</td>
+<td>laptop</td>
+<td><small>demo</small> <small>computer</small> <small>device</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='tablet'><i class='fa fa-tablet'></i></td>
+<td>3.0</td>
+<td>tablet</td>
+<td><small>ipad</small> <small>device</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Mobile Phone'><i class='fa fa-mobile'></i></td>
+<td>3.0</td>
+<td>mobile,mobile-phone</td>
+<td><small>cell phone</small> <small>cellphone</small> <small>text</small> <small>call</small> <small>iphone</small> <small>number</small> <small>telephone</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Circle Outlined'><i class='fa fa-circle-o'></i></td>
+<td>3.0</td>
+<td>circle-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='quote-left'><i class='fa fa-quote-left'></i></td>
+<td>3.0</td>
+<td>quote-left</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='quote-right'><i class='fa fa-quote-right'></i></td>
+<td>3.0</td>
+<td>quote-right</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Spinner'><i class='fa fa-spinner'></i></td>
+<td>3.0</td>
+<td>spinner</td>
+<td><small>loading</small> <small>progress</small></td>
+<td><small>Web Application</small> <small>Spinner</small></td>
+</tr><tr>
+<td title='Circle'><i class='fa fa-circle'></i></td>
+<td>3.0</td>
+<td>circle</td>
+<td><small>dot</small> <small>notification</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Reply'><i class='fa fa-reply'></i></td>
+<td>3.0</td>
+<td>reply,mail-reply</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='GitHub Alt'><i class='fa fa-github-alt'></i></td>
+<td>3.0</td>
+<td>github-alt</td>
+<td><small>octocat</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Folder Outlined'><i class='fa fa-folder-o'></i></td>
+<td>3.0</td>
+<td>folder-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Folder Open Outlined'><i class='fa fa-folder-open-o'></i></td>
+<td>3.0</td>
+<td>folder-open-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Smile Outlined'><i class='fa fa-smile-o'></i></td>
+<td>3.1</td>
+<td>smile-o</td>
+<td><small>face</small> <small>emoticon</small> <small>happy</small> <small>approve</small> <small>satisfied</small> <small>rating</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Frown Outlined'><i class='fa fa-frown-o'></i></td>
+<td>3.1</td>
+<td>frown-o</td>
+<td><small>face</small> <small>emoticon</small> <small>sad</small> <small>disapprove</small> <small>rating</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Meh Outlined'><i class='fa fa-meh-o'></i></td>
+<td>3.1</td>
+<td>meh-o</td>
+<td><small>face</small> <small>emoticon</small> <small>rating</small> <small>neutral</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Gamepad'><i class='fa fa-gamepad'></i></td>
+<td>3.1</td>
+<td>gamepad</td>
+<td><small>controller</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Keyboard Outlined'><i class='fa fa-keyboard-o'></i></td>
+<td>3.1</td>
+<td>keyboard-o</td>
+<td><small>type</small> <small>input</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Flag Outlined'><i class='fa fa-flag-o'></i></td>
+<td>3.1</td>
+<td>flag-o</td>
+<td><small>report</small> <small>notification</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='flag-checkered'><i class='fa fa-flag-checkered'></i></td>
+<td>3.1</td>
+<td>flag-checkered</td>
+<td><small>report</small> <small>notification</small> <small>notify</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Terminal'><i class='fa fa-terminal'></i></td>
+<td>3.1</td>
+<td>terminal</td>
+<td><small>command</small> <small>prompt</small> <small>code</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Code'><i class='fa fa-code'></i></td>
+<td>3.1</td>
+<td>code</td>
+<td><small>html</small> <small>brackets</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='reply-all'><i class='fa fa-reply-all'></i></td>
+<td>3.1</td>
+<td>reply-all,mail-reply-all</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Star Half Outlined'><i class='fa fa-star-half-o'></i></td>
+<td>3.1</td>
+<td>star-half-o,star-half-empty,star-half-full</td>
+<td><small>award</small> <small>achievement</small> <small>rating</small> <small>score</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='location-arrow'><i class='fa fa-location-arrow'></i></td>
+<td>3.1</td>
+<td>location-arrow</td>
+<td><small>map</small> <small>coordinates</small> <small>location</small> <small>address</small> <small>place</small> <small>where</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='crop'><i class='fa fa-crop'></i></td>
+<td>3.1</td>
+<td>crop</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='code-fork'><i class='fa fa-code-fork'></i></td>
+<td>3.1</td>
+<td>code-fork</td>
+<td><small>git</small> <small>fork</small> <small>vcs</small> <small>svn</small> <small>github</small> <small>rebase</small> <small>version</small> <small>merge</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Chain Broken'><i class='fa fa-chain-broken'></i></td>
+<td>3.1</td>
+<td>chain-broken,unlink</td>
+<td><small>remove</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Question'><i class='fa fa-question'></i></td>
+<td>3.1</td>
+<td>question</td>
+<td><small>help</small> <small>information</small> <small>unknown</small> <small>support</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Info'><i class='fa fa-info'></i></td>
+<td>3.1</td>
+<td>info</td>
+<td><small>help</small> <small>information</small> <small>more</small> <small>details</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='exclamation'><i class='fa fa-exclamation'></i></td>
+<td>3.1</td>
+<td>exclamation</td>
+<td><small>warning</small> <small>error</small> <small>problem</small> <small>notification</small> <small>notify</small> <small>alert</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='superscript'><i class='fa fa-superscript'></i></td>
+<td>3.1</td>
+<td>superscript</td>
+<td><small>exponential</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='subscript'><i class='fa fa-subscript'></i></td>
+<td>3.1</td>
+<td>subscript</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='eraser'><i class='fa fa-eraser'></i></td>
+<td>3.1</td>
+<td>eraser</td>
+<td><small>remove</small> <small>delete</small></td>
+<td><small>Text Editor</small> <small>Web Application</small></td>
+</tr><tr>
+<td title='Puzzle Piece'><i class='fa fa-puzzle-piece'></i></td>
+<td>3.1</td>
+<td>puzzle-piece</td>
+<td><small>addon</small> <small>add-on</small> <small>section</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='microphone'><i class='fa fa-microphone'></i></td>
+<td>3.1</td>
+<td>microphone</td>
+<td><small>record</small> <small>voice</small> <small>sound</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Microphone Slash'><i class='fa fa-microphone-slash'></i></td>
+<td>3.1</td>
+<td>microphone-slash</td>
+<td><small>record</small> <small>voice</small> <small>sound</small> <small>mute</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='shield'><i class='fa fa-shield'></i></td>
+<td>3.1</td>
+<td>shield</td>
+<td><small>award</small> <small>achievement</small> <small>security</small> <small>winner</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='calendar-o'><i class='fa fa-calendar-o'></i></td>
+<td>3.1</td>
+<td>calendar-o</td>
+<td><small>date</small> <small>time</small> <small>when</small> <small>event</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='fire-extinguisher'><i class='fa fa-fire-extinguisher'></i></td>
+<td>3.1</td>
+<td>fire-extinguisher</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='rocket'><i class='fa fa-rocket'></i></td>
+<td>3.1</td>
+<td>rocket</td>
+<td><small>app</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='MaxCDN'><i class='fa fa-maxcdn'></i></td>
+<td>3.1</td>
+<td>maxcdn</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Chevron Circle Left'><i class='fa fa-chevron-circle-left'></i></td>
+<td>3.1</td>
+<td>chevron-circle-left</td>
+<td><small>previous</small> <small>back</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Chevron Circle Right'><i class='fa fa-chevron-circle-right'></i></td>
+<td>3.1</td>
+<td>chevron-circle-right</td>
+<td><small>next</small> <small>forward</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Chevron Circle Up'><i class='fa fa-chevron-circle-up'></i></td>
+<td>3.1</td>
+<td>chevron-circle-up</td>
+<td><small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Chevron Circle Down'><i class='fa fa-chevron-circle-down'></i></td>
+<td>3.1</td>
+<td>chevron-circle-down</td>
+<td><small>more</small> <small>dropdown</small> <small>menu</small> <small>arrow</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='HTML 5 Logo'><i class='fa fa-html5'></i></td>
+<td>3.1</td>
+<td>html5</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='CSS 3 Logo'><i class='fa fa-css3'></i></td>
+<td>3.1</td>
+<td>css3</td>
+<td><small>code</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Anchor'><i class='fa fa-anchor'></i></td>
+<td>3.1</td>
+<td>anchor</td>
+<td><small>link</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Unlock Alt'><i class='fa fa-unlock-alt'></i></td>
+<td>3.1</td>
+<td>unlock-alt</td>
+<td><small>protect</small> <small>admin</small> <small>password</small> <small>lock</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bullseye'><i class='fa fa-bullseye'></i></td>
+<td>3.1</td>
+<td>bullseye</td>
+<td><small>target</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Ellipsis Horizontal'><i class='fa fa-ellipsis-h'></i></td>
+<td>3.1</td>
+<td>ellipsis-h</td>
+<td><small>dots</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Ellipsis Vertical'><i class='fa fa-ellipsis-v'></i></td>
+<td>3.1</td>
+<td>ellipsis-v</td>
+<td><small>dots</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='RSS Square'><i class='fa fa-rss-square'></i></td>
+<td>3.1</td>
+<td>rss-square</td>
+<td><small>feed</small> <small>blog</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Play Circle'><i class='fa fa-play-circle'></i></td>
+<td>3.1</td>
+<td>play-circle</td>
+<td><small>start</small> <small>playing</small></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Ticket'><i class='fa fa-ticket'></i></td>
+<td>3.1</td>
+<td>ticket</td>
+<td><small>movie</small> <small>pass</small> <small>support</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Minus Square'><i class='fa fa-minus-square'></i></td>
+<td>3.1</td>
+<td>minus-square</td>
+<td><small>hide</small> <small>minify</small> <small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small> <small>collapse</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Minus Square Outlined'><i class='fa fa-minus-square-o'></i></td>
+<td>3.1</td>
+<td>minus-square-o</td>
+<td><small>hide</small> <small>minify</small> <small>delete</small> <small>remove</small> <small>trash</small> <small>hide</small> <small>collapse</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Level Up'><i class='fa fa-level-up'></i></td>
+<td>3.1</td>
+<td>level-up</td>
+<td><small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Level Down'><i class='fa fa-level-down'></i></td>
+<td>3.1</td>
+<td>level-down</td>
+<td><small>arrow</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Check Square'><i class='fa fa-check-square'></i></td>
+<td>3.1</td>
+<td>check-square</td>
+<td><small>checkmark</small> <small>done</small> <small>todo</small> <small>agree</small> <small>accept</small> <small>confirm</small> <small>ok</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Pencil Square'><i class='fa fa-pencil-square'></i></td>
+<td>3.1</td>
+<td>pencil-square</td>
+<td><small>write</small> <small>edit</small> <small>update</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='External Link Square'><i class='fa fa-external-link-square'></i></td>
+<td>3.1</td>
+<td>external-link-square</td>
+<td><small>open</small> <small>new</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Share Square'><i class='fa fa-share-square'></i></td>
+<td>3.1</td>
+<td>share-square</td>
+<td><small>social</small> <small>send</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Compass'><i class='fa fa-compass'></i></td>
+<td>3.2</td>
+<td>compass</td>
+<td><small>safari</small> <small>directory</small> <small>menu</small> <small>location</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Caret Square Outlined Down'><i class='fa fa-caret-square-o-down'></i></td>
+<td>3.2</td>
+<td>caret-square-o-down,toggle-down</td>
+<td><small>more</small> <small>dropdown</small> <small>menu</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Caret Square Outlined Up'><i class='fa fa-caret-square-o-up'></i></td>
+<td>3.2</td>
+<td>caret-square-o-up,toggle-up</td>
+<td></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Caret Square Outlined Right'><i class='fa fa-caret-square-o-right'></i></td>
+<td>3.2</td>
+<td>caret-square-o-right,toggle-right</td>
+<td><small>next</small> <small>forward</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Euro (EUR)'><i class='fa fa-eur'></i></td>
+<td>3.2</td>
+<td>eur,euro</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='GBP'><i class='fa fa-gbp'></i></td>
+<td>3.2</td>
+<td>gbp</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='US Dollar'><i class='fa fa-usd'></i></td>
+<td>3.2</td>
+<td>usd,dollar</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Indian Rupee (INR)'><i class='fa fa-inr'></i></td>
+<td>3.2</td>
+<td>inr,rupee</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Japanese Yen (JPY)'><i class='fa fa-jpy'></i></td>
+<td>3.2</td>
+<td>jpy,cny,rmb,yen</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Russian Ruble (RUB)'><i class='fa fa-rub'></i></td>
+<td>4.0</td>
+<td>rub,ruble,rouble</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Korean Won (KRW)'><i class='fa fa-krw'></i></td>
+<td>3.2</td>
+<td>krw,won</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Bitcoin (BTC)'><i class='fa fa-btc'></i></td>
+<td>3.2</td>
+<td>btc,bitcoin</td>
+<td></td>
+<td><small>Currency</small> <small>Brand</small></td>
+</tr><tr>
+<td title='File'><i class='fa fa-file'></i></td>
+<td>3.2</td>
+<td>file</td>
+<td><small>new</small> <small>page</small> <small>pdf</small> <small>document</small></td>
+<td><small>Text Editor</small> <small>File Type</small></td>
+</tr><tr>
+<td title='File Text'><i class='fa fa-file-text'></i></td>
+<td>3.2</td>
+<td>file-text</td>
+<td><small>new</small> <small>page</small> <small>pdf</small> <small>document</small></td>
+<td><small>Text Editor</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Sort Alpha Ascending'><i class='fa fa-sort-alpha-asc'></i></td>
+<td>3.2</td>
+<td>sort-alpha-asc</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Alpha Descending'><i class='fa fa-sort-alpha-desc'></i></td>
+<td>3.2</td>
+<td>sort-alpha-desc</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Amount Ascending'><i class='fa fa-sort-amount-asc'></i></td>
+<td>3.2</td>
+<td>sort-amount-asc</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Amount Descending'><i class='fa fa-sort-amount-desc'></i></td>
+<td>3.2</td>
+<td>sort-amount-desc</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Numeric Ascending'><i class='fa fa-sort-numeric-asc'></i></td>
+<td>3.2</td>
+<td>sort-numeric-asc</td>
+<td><small>numbers</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sort Numeric Descending'><i class='fa fa-sort-numeric-desc'></i></td>
+<td>3.2</td>
+<td>sort-numeric-desc</td>
+<td><small>numbers</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='thumbs-up'><i class='fa fa-thumbs-up'></i></td>
+<td>3.2</td>
+<td>thumbs-up</td>
+<td><small>like</small> <small>favorite</small> <small>approve</small> <small>agree</small> <small>hand</small></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='thumbs-down'><i class='fa fa-thumbs-down'></i></td>
+<td>3.2</td>
+<td>thumbs-down</td>
+<td><small>dislike</small> <small>disapprove</small> <small>disagree</small> <small>hand</small></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='YouTube Square'><i class='fa fa-youtube-square'></i></td>
+<td>3.2</td>
+<td>youtube-square</td>
+<td><small>video</small> <small>film</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='YouTube'><i class='fa fa-youtube'></i></td>
+<td>3.2</td>
+<td>youtube</td>
+<td><small>video</small> <small>film</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Xing'><i class='fa fa-xing'></i></td>
+<td>3.2</td>
+<td>xing</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Xing Square'><i class='fa fa-xing-square'></i></td>
+<td>3.2</td>
+<td>xing-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='YouTube Play'><i class='fa fa-youtube-play'></i></td>
+<td>3.2</td>
+<td>youtube-play</td>
+<td><small>start</small> <small>playing</small></td>
+<td><small>Brand</small> <small>Video Player</small></td>
+</tr><tr>
+<td title='Dropbox'><i class='fa fa-dropbox'></i></td>
+<td>3.2</td>
+<td>dropbox</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Stack Overflow'><i class='fa fa-stack-overflow'></i></td>
+<td>3.2</td>
+<td>stack-overflow</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Instagram'><i class='fa fa-instagram'></i></td>
+<td>4.6</td>
+<td>instagram</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Flickr'><i class='fa fa-flickr'></i></td>
+<td>3.2</td>
+<td>flickr</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='App.net'><i class='fa fa-adn'></i></td>
+<td>3.2</td>
+<td>adn</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Bitbucket'><i class='fa fa-bitbucket'></i></td>
+<td>3.2</td>
+<td>bitbucket</td>
+<td><small>git</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Bitbucket Square'><i class='fa fa-bitbucket-square'></i></td>
+<td>3.2</td>
+<td>bitbucket-square</td>
+<td><small>git</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Tumblr'><i class='fa fa-tumblr'></i></td>
+<td>3.2</td>
+<td>tumblr</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Tumblr Square'><i class='fa fa-tumblr-square'></i></td>
+<td>3.2</td>
+<td>tumblr-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Long Arrow Down'><i class='fa fa-long-arrow-down'></i></td>
+<td>3.2</td>
+<td>long-arrow-down</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Long Arrow Up'><i class='fa fa-long-arrow-up'></i></td>
+<td>3.2</td>
+<td>long-arrow-up</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Long Arrow Left'><i class='fa fa-long-arrow-left'></i></td>
+<td>3.2</td>
+<td>long-arrow-left</td>
+<td><small>previous</small> <small>back</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Long Arrow Right'><i class='fa fa-long-arrow-right'></i></td>
+<td>3.2</td>
+<td>long-arrow-right</td>
+<td></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Apple'><i class='fa fa-apple'></i></td>
+<td>3.2</td>
+<td>apple</td>
+<td><small>osx</small> <small>food</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Windows'><i class='fa fa-windows'></i></td>
+<td>3.2</td>
+<td>windows</td>
+<td><small>microsoft</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Android'><i class='fa fa-android'></i></td>
+<td>3.2</td>
+<td>android</td>
+<td><small>robot</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Linux'><i class='fa fa-linux'></i></td>
+<td>3.2</td>
+<td>linux</td>
+<td><small>tux</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Dribbble'><i class='fa fa-dribbble'></i></td>
+<td>3.2</td>
+<td>dribbble</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Skype'><i class='fa fa-skype'></i></td>
+<td>3.2</td>
+<td>skype</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Foursquare'><i class='fa fa-foursquare'></i></td>
+<td>3.2</td>
+<td>foursquare</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Trello'><i class='fa fa-trello'></i></td>
+<td>3.2</td>
+<td>trello</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Female'><i class='fa fa-female'></i></td>
+<td>3.2</td>
+<td>female</td>
+<td><small>woman</small> <small>user</small> <small>person</small> <small>profile</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Male'><i class='fa fa-male'></i></td>
+<td>3.2</td>
+<td>male</td>
+<td><small>man</small> <small>user</small> <small>person</small> <small>profile</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Gratipay (Gittip)'><i class='fa fa-gratipay'></i></td>
+<td>3.2</td>
+<td>gratipay,gittip</td>
+<td><small>heart</small> <small>like</small> <small>favorite</small> <small>love</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Sun Outlined'><i class='fa fa-sun-o'></i></td>
+<td>3.2</td>
+<td>sun-o</td>
+<td><small>weather</small> <small>contrast</small> <small>lighter</small> <small>brighten</small> <small>day</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Moon Outlined'><i class='fa fa-moon-o'></i></td>
+<td>3.2</td>
+<td>moon-o</td>
+<td><small>night</small> <small>darker</small> <small>contrast</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Archive'><i class='fa fa-archive'></i></td>
+<td>3.2</td>
+<td>archive</td>
+<td><small>box</small> <small>storage</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bug'><i class='fa fa-bug'></i></td>
+<td>3.2</td>
+<td>bug</td>
+<td><small>report</small> <small>insect</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='VK'><i class='fa fa-vk'></i></td>
+<td>3.2</td>
+<td>vk</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Weibo'><i class='fa fa-weibo'></i></td>
+<td>3.2</td>
+<td>weibo</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Renren'><i class='fa fa-renren'></i></td>
+<td>3.2</td>
+<td>renren</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pagelines'><i class='fa fa-pagelines'></i></td>
+<td>4.0</td>
+<td>pagelines</td>
+<td><small>leaf</small> <small>leaves</small> <small>tree</small> <small>plant</small> <small>eco</small> <small>nature</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Stack Exchange'><i class='fa fa-stack-exchange'></i></td>
+<td>4.0</td>
+<td>stack-exchange</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Arrow Circle Outlined Right'><i class='fa fa-arrow-circle-o-right'></i></td>
+<td>4.0</td>
+<td>arrow-circle-o-right</td>
+<td><small>next</small> <small>forward</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Arrow Circle Outlined Left'><i class='fa fa-arrow-circle-o-left'></i></td>
+<td>4.0</td>
+<td>arrow-circle-o-left</td>
+<td><small>previous</small> <small>back</small></td>
+<td><small>Directional</small></td>
+</tr><tr>
+<td title='Caret Square Outlined Left'><i class='fa fa-caret-square-o-left'></i></td>
+<td>4.0</td>
+<td>caret-square-o-left,toggle-left</td>
+<td><small>previous</small> <small>back</small></td>
+<td><small>Web Application</small> <small>Directional</small></td>
+</tr><tr>
+<td title='Dot Circle Outlined'><i class='fa fa-dot-circle-o'></i></td>
+<td>4.0</td>
+<td>dot-circle-o</td>
+<td><small>target</small> <small>bullseye</small> <small>notification</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Wheelchair'><i class='fa fa-wheelchair'></i></td>
+<td>4.0</td>
+<td>wheelchair</td>
+<td><small>handicap</small> <small>person</small></td>
+<td><small>Web Application</small> <small>Medical</small> <small>Transportation</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Vimeo Square'><i class='fa fa-vimeo-square'></i></td>
+<td>4.0</td>
+<td>vimeo-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Turkish Lira (TRY)'><i class='fa fa-try'></i></td>
+<td>4.0</td>
+<td>try,turkish-lira</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='Plus Square Outlined'><i class='fa fa-plus-square-o'></i></td>
+<td>4.0</td>
+<td>plus-square-o</td>
+<td><small>add</small> <small>new</small> <small>create</small> <small>expand</small></td>
+<td><small>Web Application</small> <small>Form Control</small></td>
+</tr><tr>
+<td title='Space Shuttle'><i class='fa fa-space-shuttle'></i></td>
+<td>4.1</td>
+<td>space-shuttle</td>
+<td></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Slack Logo'><i class='fa fa-slack'></i></td>
+<td>4.1</td>
+<td>slack</td>
+<td><small>hashtag</small> <small>anchor</small> <small>hash</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Envelope Square'><i class='fa fa-envelope-square'></i></td>
+<td>4.1</td>
+<td>envelope-square</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='WordPress Logo'><i class='fa fa-wordpress'></i></td>
+<td>4.1</td>
+<td>wordpress</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='OpenID'><i class='fa fa-openid'></i></td>
+<td>4.1</td>
+<td>openid</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='University'><i class='fa fa-university'></i></td>
+<td>4.1</td>
+<td>university,institution,bank</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Graduation Cap'><i class='fa fa-graduation-cap'></i></td>
+<td>4.1</td>
+<td>graduation-cap,mortar-board</td>
+<td><small>learning</small> <small>school</small> <small>student</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Yahoo Logo'><i class='fa fa-yahoo'></i></td>
+<td>4.1</td>
+<td>yahoo</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Google Logo'><i class='fa fa-google'></i></td>
+<td>4.1</td>
+<td>google</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='reddit Logo'><i class='fa fa-reddit'></i></td>
+<td>4.1</td>
+<td>reddit</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='reddit Square'><i class='fa fa-reddit-square'></i></td>
+<td>4.1</td>
+<td>reddit-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='StumbleUpon Circle'><i class='fa fa-stumbleupon-circle'></i></td>
+<td>4.1</td>
+<td>stumbleupon-circle</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='StumbleUpon Logo'><i class='fa fa-stumbleupon'></i></td>
+<td>4.1</td>
+<td>stumbleupon</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Delicious Logo'><i class='fa fa-delicious'></i></td>
+<td>4.1</td>
+<td>delicious</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Digg Logo'><i class='fa fa-digg'></i></td>
+<td>4.1</td>
+<td>digg</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pied Piper PP Logo (Old)'><i class='fa fa-pied-piper-pp'></i></td>
+<td>4.1</td>
+<td>pied-piper-pp</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pied Piper Alternate Logo'><i class='fa fa-pied-piper-alt'></i></td>
+<td>4.1</td>
+<td>pied-piper-alt</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Drupal Logo'><i class='fa fa-drupal'></i></td>
+<td>4.1</td>
+<td>drupal</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Joomla Logo'><i class='fa fa-joomla'></i></td>
+<td>4.1</td>
+<td>joomla</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Language'><i class='fa fa-language'></i></td>
+<td>4.1</td>
+<td>language</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Fax'><i class='fa fa-fax'></i></td>
+<td>4.1</td>
+<td>fax</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Building'><i class='fa fa-building'></i></td>
+<td>4.1</td>
+<td>building</td>
+<td><small>work</small> <small>business</small> <small>apartment</small> <small>office</small> <small>company</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Child'><i class='fa fa-child'></i></td>
+<td>4.1</td>
+<td>child</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Paw'><i class='fa fa-paw'></i></td>
+<td>4.1</td>
+<td>paw</td>
+<td><small>pet</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='spoon'><i class='fa fa-spoon'></i></td>
+<td>4.1</td>
+<td>spoon</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Cube'><i class='fa fa-cube'></i></td>
+<td>4.1</td>
+<td>cube</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Cubes'><i class='fa fa-cubes'></i></td>
+<td>4.1</td>
+<td>cubes</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Behance'><i class='fa fa-behance'></i></td>
+<td>4.1</td>
+<td>behance</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Behance Square'><i class='fa fa-behance-square'></i></td>
+<td>4.1</td>
+<td>behance-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Steam'><i class='fa fa-steam'></i></td>
+<td>4.1</td>
+<td>steam</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Steam Square'><i class='fa fa-steam-square'></i></td>
+<td>4.1</td>
+<td>steam-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Recycle'><i class='fa fa-recycle'></i></td>
+<td>4.1</td>
+<td>recycle</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Car'><i class='fa fa-car'></i></td>
+<td>4.1</td>
+<td>car,automobile</td>
+<td><small>vehicle</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Taxi'><i class='fa fa-taxi'></i></td>
+<td>4.1</td>
+<td>taxi,cab</td>
+<td><small>vehicle</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Tree'><i class='fa fa-tree'></i></td>
+<td>4.1</td>
+<td>tree</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Spotify'><i class='fa fa-spotify'></i></td>
+<td>4.1</td>
+<td>spotify</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='deviantART'><i class='fa fa-deviantart'></i></td>
+<td>4.1</td>
+<td>deviantart</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='SoundCloud'><i class='fa fa-soundcloud'></i></td>
+<td>4.1</td>
+<td>soundcloud</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Database'><i class='fa fa-database'></i></td>
+<td>4.1</td>
+<td>database</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='PDF File Outlined'><i class='fa fa-file-pdf-o'></i></td>
+<td>4.1</td>
+<td>file-pdf-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Word File Outlined'><i class='fa fa-file-word-o'></i></td>
+<td>4.1</td>
+<td>file-word-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Excel File Outlined'><i class='fa fa-file-excel-o'></i></td>
+<td>4.1</td>
+<td>file-excel-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Powerpoint File Outlined'><i class='fa fa-file-powerpoint-o'></i></td>
+<td>4.1</td>
+<td>file-powerpoint-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Image File Outlined'><i class='fa fa-file-image-o'></i></td>
+<td>4.1</td>
+<td>file-image-o,file-photo-o,file-picture-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Archive File Outlined'><i class='fa fa-file-archive-o'></i></td>
+<td>4.1</td>
+<td>file-archive-o,file-zip-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Audio File Outlined'><i class='fa fa-file-audio-o'></i></td>
+<td>4.1</td>
+<td>file-audio-o,file-sound-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Video File Outlined'><i class='fa fa-file-video-o'></i></td>
+<td>4.1</td>
+<td>file-video-o,file-movie-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Code File Outlined'><i class='fa fa-file-code-o'></i></td>
+<td>4.1</td>
+<td>file-code-o</td>
+<td></td>
+<td><small>Web Application</small> <small>File Type</small></td>
+</tr><tr>
+<td title='Vine'><i class='fa fa-vine'></i></td>
+<td>4.1</td>
+<td>vine</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Codepen'><i class='fa fa-codepen'></i></td>
+<td>4.1</td>
+<td>codepen</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='jsFiddle'><i class='fa fa-jsfiddle'></i></td>
+<td>4.1</td>
+<td>jsfiddle</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Life Ring'><i class='fa fa-life-ring'></i></td>
+<td>4.1</td>
+<td>life-ring,life-bouy,life-buoy,life-saver,support</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Circle Outlined Notched'><i class='fa fa-circle-o-notch'></i></td>
+<td>4.1</td>
+<td>circle-o-notch</td>
+<td></td>
+<td><small>Web Application</small> <small>Spinner</small></td>
+</tr><tr>
+<td title='Rebel Alliance'><i class='fa fa-rebel'></i></td>
+<td>4.1</td>
+<td>rebel,ra,resistance</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Galactic Empire'><i class='fa fa-empire'></i></td>
+<td>4.1</td>
+<td>empire,ge</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Git Square'><i class='fa fa-git-square'></i></td>
+<td>4.1</td>
+<td>git-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Git'><i class='fa fa-git'></i></td>
+<td>4.1</td>
+<td>git</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Hacker News'><i class='fa fa-hacker-news'></i></td>
+<td>4.1</td>
+<td>hacker-news,y-combinator-square,yc-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Tencent Weibo'><i class='fa fa-tencent-weibo'></i></td>
+<td>4.1</td>
+<td>tencent-weibo</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='QQ'><i class='fa fa-qq'></i></td>
+<td>4.1</td>
+<td>qq</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Weixin (WeChat)'><i class='fa fa-weixin'></i></td>
+<td>4.1</td>
+<td>weixin,wechat</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Paper Plane'><i class='fa fa-paper-plane'></i></td>
+<td>4.1</td>
+<td>paper-plane,send</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Paper Plane Outlined'><i class='fa fa-paper-plane-o'></i></td>
+<td>4.1</td>
+<td>paper-plane-o,send-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='History'><i class='fa fa-history'></i></td>
+<td>4.1</td>
+<td>history</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Circle Outlined Thin'><i class='fa fa-circle-thin'></i></td>
+<td>4.1</td>
+<td>circle-thin</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='header'><i class='fa fa-header'></i></td>
+<td>4.1</td>
+<td>header</td>
+<td><small>heading</small></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='paragraph'><i class='fa fa-paragraph'></i></td>
+<td>4.1</td>
+<td>paragraph</td>
+<td></td>
+<td><small>Text Editor</small></td>
+</tr><tr>
+<td title='Sliders'><i class='fa fa-sliders'></i></td>
+<td>4.1</td>
+<td>sliders</td>
+<td><small>settings</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Share Alt'><i class='fa fa-share-alt'></i></td>
+<td>4.1</td>
+<td>share-alt</td>
+<td></td>
+<td><small>Web Application</small> <small>Brand</small></td>
+</tr><tr>
+<td title='Share Alt Square'><i class='fa fa-share-alt-square'></i></td>
+<td>4.1</td>
+<td>share-alt-square</td>
+<td></td>
+<td><small>Web Application</small> <small>Brand</small></td>
+</tr><tr>
+<td title='Bomb'><i class='fa fa-bomb'></i></td>
+<td>4.1</td>
+<td>bomb</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Futbol Outlined'><i class='fa fa-futbol-o'></i></td>
+<td>4.2</td>
+<td>futbol-o,soccer-ball-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='TTY'><i class='fa fa-tty'></i></td>
+<td>4.2</td>
+<td>tty</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Binoculars'><i class='fa fa-binoculars'></i></td>
+<td>4.2</td>
+<td>binoculars</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Plug'><i class='fa fa-plug'></i></td>
+<td>4.2</td>
+<td>plug</td>
+<td><small>power</small> <small>connect</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Slideshare'><i class='fa fa-slideshare'></i></td>
+<td>4.2</td>
+<td>slideshare</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Twitch'><i class='fa fa-twitch'></i></td>
+<td>4.2</td>
+<td>twitch</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Yelp'><i class='fa fa-yelp'></i></td>
+<td>4.2</td>
+<td>yelp</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Newspaper Outlined'><i class='fa fa-newspaper-o'></i></td>
+<td>4.2</td>
+<td>newspaper-o</td>
+<td><small>press</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='WiFi'><i class='fa fa-wifi'></i></td>
+<td>4.2</td>
+<td>wifi</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Calculator'><i class='fa fa-calculator'></i></td>
+<td>4.2</td>
+<td>calculator</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Paypal'><i class='fa fa-paypal'></i></td>
+<td>4.2</td>
+<td>paypal</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Google Wallet'><i class='fa fa-google-wallet'></i></td>
+<td>4.2</td>
+<td>google-wallet</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Visa Credit Card'><i class='fa fa-cc-visa'></i></td>
+<td>4.2</td>
+<td>cc-visa</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='MasterCard Credit Card'><i class='fa fa-cc-mastercard'></i></td>
+<td>4.2</td>
+<td>cc-mastercard</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Discover Credit Card'><i class='fa fa-cc-discover'></i></td>
+<td>4.2</td>
+<td>cc-discover</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='American Express Credit Card'><i class='fa fa-cc-amex'></i></td>
+<td>4.2</td>
+<td>cc-amex</td>
+<td><small>amex</small></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Paypal Credit Card'><i class='fa fa-cc-paypal'></i></td>
+<td>4.2</td>
+<td>cc-paypal</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Stripe Credit Card'><i class='fa fa-cc-stripe'></i></td>
+<td>4.2</td>
+<td>cc-stripe</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Bell Slash'><i class='fa fa-bell-slash'></i></td>
+<td>4.2</td>
+<td>bell-slash</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bell Slash Outlined'><i class='fa fa-bell-slash-o'></i></td>
+<td>4.2</td>
+<td>bell-slash-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Trash'><i class='fa fa-trash'></i></td>
+<td>4.2</td>
+<td>trash</td>
+<td><small>garbage</small> <small>delete</small> <small>remove</small> <small>hide</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Copyright'><i class='fa fa-copyright'></i></td>
+<td>4.2</td>
+<td>copyright</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='At'><i class='fa fa-at'></i></td>
+<td>4.2</td>
+<td>at</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Eyedropper'><i class='fa fa-eyedropper'></i></td>
+<td>4.2</td>
+<td>eyedropper</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Paint Brush'><i class='fa fa-paint-brush'></i></td>
+<td>4.2</td>
+<td>paint-brush</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Birthday Cake'><i class='fa fa-birthday-cake'></i></td>
+<td>4.2</td>
+<td>birthday-cake</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Area Chart'><i class='fa fa-area-chart'></i></td>
+<td>4.2</td>
+<td>area-chart</td>
+<td><small>graph</small> <small>analytics</small></td>
+<td><small>Web Application</small> <small>Chart</small></td>
+</tr><tr>
+<td title='Pie Chart'><i class='fa fa-pie-chart'></i></td>
+<td>4.2</td>
+<td>pie-chart</td>
+<td><small>graph</small> <small>analytics</small></td>
+<td><small>Web Application</small> <small>Chart</small></td>
+</tr><tr>
+<td title='Line Chart'><i class='fa fa-line-chart'></i></td>
+<td>4.2</td>
+<td>line-chart</td>
+<td><small>graph</small> <small>analytics</small></td>
+<td><small>Web Application</small> <small>Chart</small></td>
+</tr><tr>
+<td title='last.fm'><i class='fa fa-lastfm'></i></td>
+<td>4.2</td>
+<td>lastfm</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='last.fm Square'><i class='fa fa-lastfm-square'></i></td>
+<td>4.2</td>
+<td>lastfm-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Toggle Off'><i class='fa fa-toggle-off'></i></td>
+<td>4.2</td>
+<td>toggle-off</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Toggle On'><i class='fa fa-toggle-on'></i></td>
+<td>4.2</td>
+<td>toggle-on</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bicycle'><i class='fa fa-bicycle'></i></td>
+<td>4.2</td>
+<td>bicycle</td>
+<td><small>vehicle</small> <small>bike</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Bus'><i class='fa fa-bus'></i></td>
+<td>4.2</td>
+<td>bus</td>
+<td><small>vehicle</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='ioxhost'><i class='fa fa-ioxhost'></i></td>
+<td>4.2</td>
+<td>ioxhost</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='AngelList'><i class='fa fa-angellist'></i></td>
+<td>4.2</td>
+<td>angellist</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Closed Captions'><i class='fa fa-cc'></i></td>
+<td>4.2</td>
+<td>cc</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Shekel (ILS)'><i class='fa fa-ils'></i></td>
+<td>4.2</td>
+<td>ils,shekel,sheqel</td>
+<td></td>
+<td><small>Currency</small></td>
+</tr><tr>
+<td title='meanpath'><i class='fa fa-meanpath'></i></td>
+<td>4.2</td>
+<td>meanpath</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='BuySellAds'><i class='fa fa-buysellads'></i></td>
+<td>4.3</td>
+<td>buysellads</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Connect Develop'><i class='fa fa-connectdevelop'></i></td>
+<td>4.3</td>
+<td>connectdevelop</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='DashCube'><i class='fa fa-dashcube'></i></td>
+<td>4.3</td>
+<td>dashcube</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Forumbee'><i class='fa fa-forumbee'></i></td>
+<td>4.3</td>
+<td>forumbee</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Leanpub'><i class='fa fa-leanpub'></i></td>
+<td>4.3</td>
+<td>leanpub</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Sellsy'><i class='fa fa-sellsy'></i></td>
+<td>4.3</td>
+<td>sellsy</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Shirts in Bulk'><i class='fa fa-shirtsinbulk'></i></td>
+<td>4.3</td>
+<td>shirtsinbulk</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='SimplyBuilt'><i class='fa fa-simplybuilt'></i></td>
+<td>4.3</td>
+<td>simplybuilt</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='skyatlas'><i class='fa fa-skyatlas'></i></td>
+<td>4.3</td>
+<td>skyatlas</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Add to Shopping Cart'><i class='fa fa-cart-plus'></i></td>
+<td>4.3</td>
+<td>cart-plus</td>
+<td><small>add</small> <small>shopping</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Shopping Cart Arrow Down'><i class='fa fa-cart-arrow-down'></i></td>
+<td>4.3</td>
+<td>cart-arrow-down</td>
+<td><small>shopping</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Diamond'><i class='fa fa-diamond'></i></td>
+<td>4.3</td>
+<td>diamond</td>
+<td><small>gem</small> <small>gemstone</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Ship'><i class='fa fa-ship'></i></td>
+<td>4.3</td>
+<td>ship</td>
+<td><small>boat</small> <small>sea</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='User Secret'><i class='fa fa-user-secret'></i></td>
+<td>4.3</td>
+<td>user-secret</td>
+<td><small>whisper</small> <small>spy</small> <small>incognito</small> <small>privacy</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Motorcycle'><i class='fa fa-motorcycle'></i></td>
+<td>4.3</td>
+<td>motorcycle</td>
+<td><small>vehicle</small> <small>bike</small></td>
+<td><small>Web Application</small> <small>Transportation</small></td>
+</tr><tr>
+<td title='Street View'><i class='fa fa-street-view'></i></td>
+<td>4.3</td>
+<td>street-view</td>
+<td><small>map</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Heartbeat'><i class='fa fa-heartbeat'></i></td>
+<td>4.3</td>
+<td>heartbeat</td>
+<td><small>ekg</small></td>
+<td><small>Web Application</small> <small>Medical</small></td>
+</tr><tr>
+<td title='Venus'><i class='fa fa-venus'></i></td>
+<td>4.3</td>
+<td>venus</td>
+<td><small>female</small></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mars'><i class='fa fa-mars'></i></td>
+<td>4.3</td>
+<td>mars</td>
+<td><small>male</small></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mercury'><i class='fa fa-mercury'></i></td>
+<td>4.3</td>
+<td>mercury</td>
+<td><small>transgender</small></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Transgender'><i class='fa fa-transgender'></i></td>
+<td>4.3</td>
+<td>transgender,intersex</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Transgender Alt'><i class='fa fa-transgender-alt'></i></td>
+<td>4.3</td>
+<td>transgender-alt</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Venus Double'><i class='fa fa-venus-double'></i></td>
+<td>4.3</td>
+<td>venus-double</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mars Double'><i class='fa fa-mars-double'></i></td>
+<td>4.3</td>
+<td>mars-double</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Venus Mars'><i class='fa fa-venus-mars'></i></td>
+<td>4.3</td>
+<td>venus-mars</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mars Stroke'><i class='fa fa-mars-stroke'></i></td>
+<td>4.3</td>
+<td>mars-stroke</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mars Stroke Vertical'><i class='fa fa-mars-stroke-v'></i></td>
+<td>4.3</td>
+<td>mars-stroke-v</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Mars Stroke Horizontal'><i class='fa fa-mars-stroke-h'></i></td>
+<td>4.3</td>
+<td>mars-stroke-h</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Neuter'><i class='fa fa-neuter'></i></td>
+<td>4.3</td>
+<td>neuter</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Genderless'><i class='fa fa-genderless'></i></td>
+<td>4.4</td>
+<td>genderless</td>
+<td></td>
+<td><small>Gender</small></td>
+</tr><tr>
+<td title='Facebook Official'><i class='fa fa-facebook-official'></i></td>
+<td>4.3</td>
+<td>facebook-official</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pinterest P'><i class='fa fa-pinterest-p'></i></td>
+<td>4.3</td>
+<td>pinterest-p</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='What's App'><i class='fa fa-whatsapp'></i></td>
+<td>4.3</td>
+<td>whatsapp</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Server'><i class='fa fa-server'></i></td>
+<td>4.3</td>
+<td>server</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Add User'><i class='fa fa-user-plus'></i></td>
+<td>4.3</td>
+<td>user-plus</td>
+<td><small>sign up</small> <small>signup</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Remove User'><i class='fa fa-user-times'></i></td>
+<td>4.3</td>
+<td>user-times</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bed'><i class='fa fa-bed'></i></td>
+<td>4.3</td>
+<td>bed,hotel</td>
+<td><small>travel</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Viacoin'><i class='fa fa-viacoin'></i></td>
+<td>4.3</td>
+<td>viacoin</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Train'><i class='fa fa-train'></i></td>
+<td>4.3</td>
+<td>train</td>
+<td></td>
+<td><small>Transportation</small></td>
+</tr><tr>
+<td title='Subway'><i class='fa fa-subway'></i></td>
+<td>4.3</td>
+<td>subway</td>
+<td></td>
+<td><small>Transportation</small></td>
+</tr><tr>
+<td title='Medium'><i class='fa fa-medium'></i></td>
+<td>4.3</td>
+<td>medium</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Y Combinator'><i class='fa fa-y-combinator'></i></td>
+<td>4.4</td>
+<td>y-combinator,yc</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Optin Monster'><i class='fa fa-optin-monster'></i></td>
+<td>4.4</td>
+<td>optin-monster</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='OpenCart'><i class='fa fa-opencart'></i></td>
+<td>4.4</td>
+<td>opencart</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='ExpeditedSSL'><i class='fa fa-expeditedssl'></i></td>
+<td>4.4</td>
+<td>expeditedssl</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Battery Full'><i class='fa fa-battery-full'></i></td>
+<td>4.4</td>
+<td>battery-full,battery-4,battery</td>
+<td><small>power</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Battery 3/4 Full'><i class='fa fa-battery-three-quarters'></i></td>
+<td>4.4</td>
+<td>battery-three-quarters,battery-3</td>
+<td><small>power</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Battery 1/2 Full'><i class='fa fa-battery-half'></i></td>
+<td>4.4</td>
+<td>battery-half,battery-2</td>
+<td><small>power</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Battery 1/4 Full'><i class='fa fa-battery-quarter'></i></td>
+<td>4.4</td>
+<td>battery-quarter,battery-1</td>
+<td><small>power</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Battery Empty'><i class='fa fa-battery-empty'></i></td>
+<td>4.4</td>
+<td>battery-empty,battery-0</td>
+<td><small>power</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Mouse Pointer'><i class='fa fa-mouse-pointer'></i></td>
+<td>4.4</td>
+<td>mouse-pointer</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='I Beam Cursor'><i class='fa fa-i-cursor'></i></td>
+<td>4.4</td>
+<td>i-cursor</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Object Group'><i class='fa fa-object-group'></i></td>
+<td>4.4</td>
+<td>object-group</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Object Ungroup'><i class='fa fa-object-ungroup'></i></td>
+<td>4.4</td>
+<td>object-ungroup</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sticky Note'><i class='fa fa-sticky-note'></i></td>
+<td>4.4</td>
+<td>sticky-note</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Sticky Note Outlined'><i class='fa fa-sticky-note-o'></i></td>
+<td>4.4</td>
+<td>sticky-note-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='JCB Credit Card'><i class='fa fa-cc-jcb'></i></td>
+<td>4.4</td>
+<td>cc-jcb</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Diner's Club Credit Card'><i class='fa fa-cc-diners-club'></i></td>
+<td>4.4</td>
+<td>cc-diners-club</td>
+<td></td>
+<td><small>Brand</small> <small>Payment</small></td>
+</tr><tr>
+<td title='Clone'><i class='fa fa-clone'></i></td>
+<td>4.4</td>
+<td>clone</td>
+<td><small>copy</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Balance Scale'><i class='fa fa-balance-scale'></i></td>
+<td>4.4</td>
+<td>balance-scale</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hourglass Outlined'><i class='fa fa-hourglass-o'></i></td>
+<td>4.4</td>
+<td>hourglass-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hourglass Start'><i class='fa fa-hourglass-start'></i></td>
+<td>4.4</td>
+<td>hourglass-start,hourglass-1</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hourglass Half'><i class='fa fa-hourglass-half'></i></td>
+<td>4.4</td>
+<td>hourglass-half,hourglass-2</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hourglass End'><i class='fa fa-hourglass-end'></i></td>
+<td>4.4</td>
+<td>hourglass-end,hourglass-3</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hourglass'><i class='fa fa-hourglass'></i></td>
+<td>4.4</td>
+<td>hourglass</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Rock (Hand)'><i class='fa fa-hand-rock-o'></i></td>
+<td>4.4</td>
+<td>hand-rock-o,hand-grab-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Paper (Hand)'><i class='fa fa-hand-paper-o'></i></td>
+<td>4.4</td>
+<td>hand-paper-o,hand-stop-o</td>
+<td><small>stop</small></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Scissors (Hand)'><i class='fa fa-hand-scissors-o'></i></td>
+<td>4.4</td>
+<td>hand-scissors-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Lizard (Hand)'><i class='fa fa-hand-lizard-o'></i></td>
+<td>4.4</td>
+<td>hand-lizard-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Spock (Hand)'><i class='fa fa-hand-spock-o'></i></td>
+<td>4.4</td>
+<td>hand-spock-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Hand Pointer'><i class='fa fa-hand-pointer-o'></i></td>
+<td>4.4</td>
+<td>hand-pointer-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Hand Peace'><i class='fa fa-hand-peace-o'></i></td>
+<td>4.4</td>
+<td>hand-peace-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Hand</small></td>
+</tr><tr>
+<td title='Trademark'><i class='fa fa-trademark'></i></td>
+<td>4.4</td>
+<td>trademark</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Registered Trademark'><i class='fa fa-registered'></i></td>
+<td>4.4</td>
+<td>registered</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Creative Commons'><i class='fa fa-creative-commons'></i></td>
+<td>4.4</td>
+<td>creative-commons</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='GG Currency'><i class='fa fa-gg'></i></td>
+<td>4.4</td>
+<td>gg</td>
+<td></td>
+<td><small>Currency</small> <small>Brand</small></td>
+</tr><tr>
+<td title='GG Currency Circle'><i class='fa fa-gg-circle'></i></td>
+<td>4.4</td>
+<td>gg-circle</td>
+<td></td>
+<td><small>Currency</small> <small>Brand</small></td>
+</tr><tr>
+<td title='TripAdvisor'><i class='fa fa-tripadvisor'></i></td>
+<td>4.4</td>
+<td>tripadvisor</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Odnoklassniki'><i class='fa fa-odnoklassniki'></i></td>
+<td>4.4</td>
+<td>odnoklassniki</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Odnoklassniki Square'><i class='fa fa-odnoklassniki-square'></i></td>
+<td>4.4</td>
+<td>odnoklassniki-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Get Pocket'><i class='fa fa-get-pocket'></i></td>
+<td>4.4</td>
+<td>get-pocket</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Wikipedia W'><i class='fa fa-wikipedia-w'></i></td>
+<td>4.4</td>
+<td>wikipedia-w</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Safari'><i class='fa fa-safari'></i></td>
+<td>4.4</td>
+<td>safari</td>
+<td><small>browser</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Chrome'><i class='fa fa-chrome'></i></td>
+<td>4.4</td>
+<td>chrome</td>
+<td><small>browser</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Firefox'><i class='fa fa-firefox'></i></td>
+<td>4.4</td>
+<td>firefox</td>
+<td><small>browser</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Opera'><i class='fa fa-opera'></i></td>
+<td>4.4</td>
+<td>opera</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Internet-explorer'><i class='fa fa-internet-explorer'></i></td>
+<td>4.4</td>
+<td>internet-explorer</td>
+<td><small>browser</small> <small>ie</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Television'><i class='fa fa-television'></i></td>
+<td>4.4</td>
+<td>television,tv</td>
+<td><small>display</small> <small>computer</small> <small>monitor</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Contao'><i class='fa fa-contao'></i></td>
+<td>4.4</td>
+<td>contao</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='500px'><i class='fa fa-500px'></i></td>
+<td>4.4</td>
+<td>500px</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Amazon'><i class='fa fa-amazon'></i></td>
+<td>4.4</td>
+<td>amazon</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Calendar Plus Outlined'><i class='fa fa-calendar-plus-o'></i></td>
+<td>4.4</td>
+<td>calendar-plus-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Calendar Minus Outlined'><i class='fa fa-calendar-minus-o'></i></td>
+<td>4.4</td>
+<td>calendar-minus-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Calendar Times Outlined'><i class='fa fa-calendar-times-o'></i></td>
+<td>4.4</td>
+<td>calendar-times-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Calendar Check Outlined'><i class='fa fa-calendar-check-o'></i></td>
+<td>4.4</td>
+<td>calendar-check-o</td>
+<td><small>ok</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Industry'><i class='fa fa-industry'></i></td>
+<td>4.4</td>
+<td>industry</td>
+<td><small>factory</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Map Pin'><i class='fa fa-map-pin'></i></td>
+<td>4.4</td>
+<td>map-pin</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Map Signs'><i class='fa fa-map-signs'></i></td>
+<td>4.4</td>
+<td>map-signs</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Map Outlined'><i class='fa fa-map-o'></i></td>
+<td>4.4</td>
+<td>map-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Map'><i class='fa fa-map'></i></td>
+<td>4.4</td>
+<td>map</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Commenting'><i class='fa fa-commenting'></i></td>
+<td>4.4</td>
+<td>commenting</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Commenting Outlined'><i class='fa fa-commenting-o'></i></td>
+<td>4.4</td>
+<td>commenting-o</td>
+<td><small>speech</small> <small>notification</small> <small>note</small> <small>chat</small> <small>bubble</small> <small>feedback</small> <small>message</small> <small>texting</small> <small>sms</small> <small>conversation</small></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Houzz'><i class='fa fa-houzz'></i></td>
+<td>4.4</td>
+<td>houzz</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Vimeo'><i class='fa fa-vimeo'></i></td>
+<td>4.4</td>
+<td>vimeo</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Font Awesome Black Tie'><i class='fa fa-black-tie'></i></td>
+<td>4.4</td>
+<td>black-tie</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Fonticons'><i class='fa fa-fonticons'></i></td>
+<td>4.4</td>
+<td>fonticons</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='reddit Alien'><i class='fa fa-reddit-alien'></i></td>
+<td>4.5</td>
+<td>reddit-alien</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Edge Browser'><i class='fa fa-edge'></i></td>
+<td>4.5</td>
+<td>edge</td>
+<td><small>browser</small> <small>ie</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Credit Card'><i class='fa fa-credit-card-alt'></i></td>
+<td>4.5</td>
+<td>credit-card-alt</td>
+<td><small>money</small> <small>buy</small> <small>debit</small> <small>checkout</small> <small>purchase</small> <small>payment</small> <small>credit card</small></td>
+<td><small>Payment</small> <small>Web Application</small></td>
+</tr><tr>
+<td title='Codie Pie'><i class='fa fa-codiepie'></i></td>
+<td>4.5</td>
+<td>codiepie</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='MODX'><i class='fa fa-modx'></i></td>
+<td>4.5</td>
+<td>modx</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Fort Awesome'><i class='fa fa-fort-awesome'></i></td>
+<td>4.5</td>
+<td>fort-awesome</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='USB'><i class='fa fa-usb'></i></td>
+<td>4.5</td>
+<td>usb</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Product Hunt'><i class='fa fa-product-hunt'></i></td>
+<td>4.5</td>
+<td>product-hunt</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Mixcloud'><i class='fa fa-mixcloud'></i></td>
+<td>4.5</td>
+<td>mixcloud</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Scribd'><i class='fa fa-scribd'></i></td>
+<td>4.5</td>
+<td>scribd</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pause Circle'><i class='fa fa-pause-circle'></i></td>
+<td>4.5</td>
+<td>pause-circle</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Pause Circle Outlined'><i class='fa fa-pause-circle-o'></i></td>
+<td>4.5</td>
+<td>pause-circle-o</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Stop Circle'><i class='fa fa-stop-circle'></i></td>
+<td>4.5</td>
+<td>stop-circle</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Stop Circle Outlined'><i class='fa fa-stop-circle-o'></i></td>
+<td>4.5</td>
+<td>stop-circle-o</td>
+<td></td>
+<td><small>Video Player</small></td>
+</tr><tr>
+<td title='Shopping Bag'><i class='fa fa-shopping-bag'></i></td>
+<td>4.5</td>
+<td>shopping-bag</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Shopping Basket'><i class='fa fa-shopping-basket'></i></td>
+<td>4.5</td>
+<td>shopping-basket</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Hashtag'><i class='fa fa-hashtag'></i></td>
+<td>4.5</td>
+<td>hashtag</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bluetooth'><i class='fa fa-bluetooth'></i></td>
+<td>4.5</td>
+<td>bluetooth</td>
+<td></td>
+<td><small>Web Application</small> <small>Brand</small></td>
+</tr><tr>
+<td title='Bluetooth'><i class='fa fa-bluetooth-b'></i></td>
+<td>4.5</td>
+<td>bluetooth-b</td>
+<td></td>
+<td><small>Web Application</small> <small>Brand</small></td>
+</tr><tr>
+<td title='Percent'><i class='fa fa-percent'></i></td>
+<td>4.5</td>
+<td>percent</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='GitLab'><i class='fa fa-gitlab'></i></td>
+<td>4.6</td>
+<td>gitlab</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='WPBeginner'><i class='fa fa-wpbeginner'></i></td>
+<td>4.6</td>
+<td>wpbeginner</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='WPForms'><i class='fa fa-wpforms'></i></td>
+<td>4.6</td>
+<td>wpforms</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Envira Gallery'><i class='fa fa-envira'></i></td>
+<td>4.6</td>
+<td>envira</td>
+<td><small>leaf</small></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Universal Access'><i class='fa fa-universal-access'></i></td>
+<td>4.6</td>
+<td>universal-access</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Wheelchair Alt'><i class='fa fa-wheelchair-alt'></i></td>
+<td>4.6</td>
+<td>wheelchair-alt</td>
+<td><small>handicap</small> <small>person</small></td>
+<td><small>Web Application</small> <small>Medical</small> <small>Transportation</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Question Circle Outlined'><i class='fa fa-question-circle-o'></i></td>
+<td>4.6</td>
+<td>question-circle-o</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Blind'><i class='fa fa-blind'></i></td>
+<td>4.6</td>
+<td>blind</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Audio Description'><i class='fa fa-audio-description'></i></td>
+<td>4.6</td>
+<td>audio-description</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Volume Control Phone'><i class='fa fa-volume-control-phone'></i></td>
+<td>4.6</td>
+<td>volume-control-phone</td>
+<td><small>telephone</small></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Braille'><i class='fa fa-braille'></i></td>
+<td>4.6</td>
+<td>braille</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Assistive Listening Systems'><i class='fa fa-assistive-listening-systems'></i></td>
+<td>4.6</td>
+<td>assistive-listening-systems</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='American Sign Language Interpreting'><i class='fa fa-american-sign-language-interpreting'></i></td>
+<td>4.6</td>
+<td>american-sign-language-interpreting,asl-interpreting</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Deaf'><i class='fa fa-deaf'></i></td>
+<td>4.6</td>
+<td>deaf,deafness,hard-of-hearing</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Glide'><i class='fa fa-glide'></i></td>
+<td>4.6</td>
+<td>glide</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Glide G'><i class='fa fa-glide-g'></i></td>
+<td>4.6</td>
+<td>glide-g</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Sign Language'><i class='fa fa-sign-language'></i></td>
+<td>4.6</td>
+<td>sign-language,signing</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Low Vision'><i class='fa fa-low-vision'></i></td>
+<td>4.6</td>
+<td>low-vision</td>
+<td></td>
+<td><small>Web Application</small> <small>Accessibility</small></td>
+</tr><tr>
+<td title='Viadeo'><i class='fa fa-viadeo'></i></td>
+<td>4.6</td>
+<td>viadeo</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Viadeo Square'><i class='fa fa-viadeo-square'></i></td>
+<td>4.6</td>
+<td>viadeo-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Snapchat'><i class='fa fa-snapchat'></i></td>
+<td>4.6</td>
+<td>snapchat</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Snapchat Ghost'><i class='fa fa-snapchat-ghost'></i></td>
+<td>4.6</td>
+<td>snapchat-ghost</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Snapchat Square'><i class='fa fa-snapchat-square'></i></td>
+<td>4.6</td>
+<td>snapchat-square</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Pied Piper Logo'><i class='fa fa-pied-piper'></i></td>
+<td>4.6</td>
+<td>pied-piper</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='First Order'><i class='fa fa-first-order'></i></td>
+<td>4.6</td>
+<td>first-order</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Yoast'><i class='fa fa-yoast'></i></td>
+<td>4.6</td>
+<td>yoast</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='ThemeIsle'><i class='fa fa-themeisle'></i></td>
+<td>4.6</td>
+<td>themeisle</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Google Plus Official'><i class='fa fa-google-plus-official'></i></td>
+<td>4.6</td>
+<td>google-plus-official,google-plus-circle</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Font Awesome'><i class='fa fa-font-awesome'></i></td>
+<td>4.6</td>
+<td>font-awesome,fa</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Handshake Outlined'><i class='fa fa-handshake-o'></i></td>
+<td>4.7</td>
+<td>handshake-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Envelope Open'><i class='fa fa-envelope-open'></i></td>
+<td>4.7</td>
+<td>envelope-open</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Envelope Open Outlined'><i class='fa fa-envelope-open-o'></i></td>
+<td>4.7</td>
+<td>envelope-open-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Linode'><i class='fa fa-linode'></i></td>
+<td>4.7</td>
+<td>linode</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Address Book'><i class='fa fa-address-book'></i></td>
+<td>4.7</td>
+<td>address-book</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Address Book Outlined'><i class='fa fa-address-book-o'></i></td>
+<td>4.7</td>
+<td>address-book-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Address Card'><i class='fa fa-address-card'></i></td>
+<td>4.7</td>
+<td>address-card,vcard</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Address Card Outlined'><i class='fa fa-address-card-o'></i></td>
+<td>4.7</td>
+<td>address-card-o,vcard-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='User Circle'><i class='fa fa-user-circle'></i></td>
+<td>4.7</td>
+<td>user-circle</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='User Circle Outlined'><i class='fa fa-user-circle-o'></i></td>
+<td>4.7</td>
+<td>user-circle-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='User Outlined'><i class='fa fa-user-o'></i></td>
+<td>4.7</td>
+<td>user-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Identification Badge'><i class='fa fa-id-badge'></i></td>
+<td>4.7</td>
+<td>id-badge</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Identification Card'><i class='fa fa-id-card'></i></td>
+<td>4.7</td>
+<td>id-card,drivers-license</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Identification Card Outlined'><i class='fa fa-id-card-o'></i></td>
+<td>4.7</td>
+<td>id-card-o,drivers-license-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Quora'><i class='fa fa-quora'></i></td>
+<td>4.7</td>
+<td>quora</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Free Code Camp'><i class='fa fa-free-code-camp'></i></td>
+<td>4.7</td>
+<td>free-code-camp</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Telegram'><i class='fa fa-telegram'></i></td>
+<td>4.7</td>
+<td>telegram</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Thermometer Full'><i class='fa fa-thermometer-full'></i></td>
+<td>4.7</td>
+<td>thermometer-full,thermometer-4,thermometer</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Thermometer 3/4 Full'><i class='fa fa-thermometer-three-quarters'></i></td>
+<td>4.7</td>
+<td>thermometer-three-quarters,thermometer-3</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Thermometer 1/2 Full'><i class='fa fa-thermometer-half'></i></td>
+<td>4.7</td>
+<td>thermometer-half,thermometer-2</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Thermometer 1/4 Full'><i class='fa fa-thermometer-quarter'></i></td>
+<td>4.7</td>
+<td>thermometer-quarter,thermometer-1</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Thermometer Empty'><i class='fa fa-thermometer-empty'></i></td>
+<td>4.7</td>
+<td>thermometer-empty,thermometer-0</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Shower'><i class='fa fa-shower'></i></td>
+<td>4.7</td>
+<td>shower</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bath'><i class='fa fa-bath'></i></td>
+<td>4.7</td>
+<td>bath,bathtub,s15</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Podcast'><i class='fa fa-podcast'></i></td>
+<td>4.7</td>
+<td>podcast</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Window Maximize'><i class='fa fa-window-maximize'></i></td>
+<td>4.7</td>
+<td>window-maximize</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Window Minimize'><i class='fa fa-window-minimize'></i></td>
+<td>4.7</td>
+<td>window-minimize</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Window Restore'><i class='fa fa-window-restore'></i></td>
+<td>4.7</td>
+<td>window-restore</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Window Close'><i class='fa fa-window-close'></i></td>
+<td>4.7</td>
+<td>window-close,times-rectangle</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Window Close Outline'><i class='fa fa-window-close-o'></i></td>
+<td>4.7</td>
+<td>window-close-o,times-rectangle-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Bandcamp'><i class='fa fa-bandcamp'></i></td>
+<td>4.7</td>
+<td>bandcamp</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Grav'><i class='fa fa-grav'></i></td>
+<td>4.7</td>
+<td>grav</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Etsy'><i class='fa fa-etsy'></i></td>
+<td>4.7</td>
+<td>etsy</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='IMDB'><i class='fa fa-imdb'></i></td>
+<td>4.7</td>
+<td>imdb</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Ravelry'><i class='fa fa-ravelry'></i></td>
+<td>4.7</td>
+<td>ravelry</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Eercast'><i class='fa fa-eercast'></i></td>
+<td>4.7</td>
+<td>eercast</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Microchip'><i class='fa fa-microchip'></i></td>
+<td>4.7</td>
+<td>microchip</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Snowflake Outlined'><i class='fa fa-snowflake-o'></i></td>
+<td>4.7</td>
+<td>snowflake-o</td>
+<td></td>
+<td><small>Web Application</small></td>
+</tr><tr>
+<td title='Superpowers'><i class='fa fa-superpowers'></i></td>
+<td>4.7</td>
+<td>superpowers</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='WPExplorer'><i class='fa fa-wpexplorer'></i></td>
+<td>4.7</td>
+<td>wpexplorer</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr><tr>
+<td title='Meetup'><i class='fa fa-meetup'></i></td>
+<td>4.7</td>
+<td>meetup</td>
+<td></td>
+<td><small>Brand</small></td>
+</tr>
+				</tbody>
+			</table>
+		</div>
+		<a href="https://twitter.com/atakanau" target="_blank"><code>@atakanau</code></a>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-88633525-1', 'auto');
+ga('send', 'pageview');
+</script>
+		
+	</body>
+</html>
